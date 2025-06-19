@@ -1,43 +1,43 @@
 Class extends DataClass
 
-exposed function search($name : text)->$result : cs.UserSelection
-	$result := this.query("fullName = :1 or email = :1"; "@"+$name+"@").orderBy("firstname asc, lastname asc")
+exposed Function search($name : Text)->$result : cs:C1710.UserSelection
+	$result:=This:C1470.query("fullName = :1 or email = :1"; "@"+$name+"@").orderBy("firstname asc, lastname asc")
 	
-exposed function create($email : text; $firstname : text; $lastname : text; $role : text)->$result : boolean
-	var $user: cs.UserEntity
-	var $pattern_t; password; html; url: text
-	var $mail: object := {}
-	var $mailingResult: boolean  //added now
-	$pattern_t := "\\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}\\b"
+exposed Function create($email : Text; $firstname : Text; $lastname : Text; $role : Text)->$result : Boolean
+	var $user : cs:C1710.UserEntity
+	var $pattern_t; $password; $html; $url : Text
+	var $mail : Object:={}
+	var $mailingResult : Boolean  //added now
+	$pattern_t:="\\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}\\b"
 	
-	if (($email = "") || ($firstname = "") || ($lastname = ""))
-		web Form.setWarning("Please Fill all fields !!")
-	else 
-		$user := this.query("email = :1"; $email).first()
-		if ($user # null)
-			web Form.setWarning("Email Already exists please Sign in or Forget your password")
-		else 
-			case of 
-				: (not(Match regex($pattern_t; $email; 1)))
-					web Form.setWarning("Email Format is incorrect")
-				: (Match regex($pattern_t; $email; 1))
-					password := generatePassword()
-					$user := ds.User.new()
-					$user.email := $email
-					$user.lastname := $lastname
-					$user.firstname := $firstname
-					$user.role := $role
-					$user.password := Generate password hash(password)
-					$user.active := true
-					$user.commentMail := true
-					$user.commentNotification := true
-					$user.likeMail := true
-					$user.likeNotification := true
+	If (($email="") || ($firstname="") || ($lastname=""))
+		Web Form:C1735.setWarning("Please Fill all fields !!")
+	Else 
+		$user:=This:C1470.query("email = :1"; $email).first()
+		If ($user#Null:C1517)
+			Web Form:C1735.setWarning("Email Already exists please Sign in or Forget your password")
+		Else 
+			Case of 
+				: (Not:C34(Match regex:C1019($pattern_t; $email; 1)))
+					Web Form:C1735.setWarning("Email Format is incorrect")
+				: (Match regex:C1019($pattern_t; $email; 1))
+					$password:=generatePassword()
+					$user:=ds:C1482.User.new()
+					$user.email:=$email
+					$user.lastname:=$lastname
+					$user.firstname:=$firstname
+					$user.role:=$role
+					$user.password:=Generate password hash:C1533($password)
+					$user.active:=True:C214
+					$user.commentMail:=True:C214
+					$user.commentNotification:=True:C214
+					$user.likeMail:=True:C214
+					$user.likeNotification:=True:C214
 					$user.save()
-					$mail.personalizations := [{to: [{$email: $email}]}]
-					$mail.subject := "Your KnowBase account is created"
-					url := ""
-					html := "<!doctype html>"+\
+					$mail.personalizations:=[{to: [{$email: $email}]}]
+					$mail.subject:="Your KnowBase account is created"
+					$url:=""
+					$html:="<!doctype html>"+\
 						"<html lang=\"en-US\">"+\
 						"<head>"+\
 						"<meta content=\"text/html; charset=utf-8\" http-equiv=\"Content-Type\" />"+\
@@ -64,11 +64,11 @@ exposed function create($email : text; $firstname : text; $lastname : text; $rol
 						"<h1 style=\"font-size: 24px; color: #1e1e2d; font-weight: 500;\">Your KnowBase account is created</h1>"+\
 						"<p style=\"font-size: 15px; color: #455056; line-height: 24px;\">"+\
 						"Your KnowBase account has been successfully created. To access your account, use the following password:"+\
-						"<br/><strong style=\"color: #3976D0; font-size: 16px;\">"+password+"</strong>"+\
+						"<br/><strong style=\"color: #3976D0; font-size: 16px;\">"+$password+"</strong>"+\
 						"<br/><br/>"+\
 						"Click the button below to sign in with your new account:"+\
 						"</p>"+\
-						"<a href=\""+url+"\" "+\
+						"<a href=\""+$url+"\" "+\
 						"style=\"background: #3976D0; color: #fff; text-decoration: none; font-size: 14px; padding: 10px 24px; border-radius: 50px; display: inline-block;\">"+\
 						"Sign In"+\
 						"</a>"+\
@@ -85,35 +85,35 @@ exposed function create($email : text; $firstname : text; $lastname : text; $rol
 						"</table>"+\
 						"</body>"+\
 						"</html>"
-					$mail.content := [{type: "text/html"; value: html}]
-					$mailingResult := cs.Mailer.me.send($mail)//added the =
-					web Form.addUser.hide()
-					if ($mailingResult)
-						web Form.setMessage("Email sent successfuly!!")
-					end if 
-			end case 
-		end if 
-	end if 
+					$mail.content:=[{type: "text/html"; value: $html}]
+					$mailingResult:=cs:C1710.Mailer.me.send($mail)  //added the =
+					Web Form:C1735.addUser.hide()
+					If ($mailingResult)
+						Web Form:C1735.setMessage("Email sent successfuly!!")
+					End if 
+			End case 
+		End if 
+	End if 
 	
-exposed function userPieChart() : collection
-	var $stats: collection := []
-	var $users: cs.UserSelection := this.all()
-	$stats.push({label: "active"; value: $users.query("active = :1"; true).length})
-	$stats.push({label: "inactive"; value: $users.query("active = :1"; false).length})
+exposed Function userPieChart() : Collection
+	var $stats : Collection:=[]
+	var $users : cs:C1710.UserSelection:=This:C1470.all()
+	$stats.push({label: "active"; value: $users.query("active = :1"; True:C214).length})
+	$stats.push({label: "inactive"; value: $users.query("active = :1"; False:C215).length})
 	return $stats
 	
-exposed function topUsers($role : text) : collection
-	var $stats: collection := []
-	var $values: collection
-	var $users: cs.UserSelection
-	case of 
-		: ($role = "")
-			$users := this.all().orderByFormula("this.articles.length"; ck descending).slice(0; 20)
-		: (($role = "Admin") || ($role = "Tutor"))
-			$users := this.query("role = :1"; $role).orderByFormula("this.articles.length"; ck descending).slice(0; 20)
-		: ($role = "Learner")
-			$users := this.query("role = :1"; $role).orderByFormula("this.comments.length"; ck descending).slice(0; 20)
-	end case 
-	$stats := $users.extract("fullName"; "x"; "articles.length"; "y"; "comments.length"; "z"; "likes.length"; "t")
+exposed Function topUsers($role : Text) : Collection
+	var $stats : Collection:=[]
+	var $values : Collection
+	var $users : cs:C1710.UserSelection
+	Case of 
+		: ($role="")
+			$users:=This:C1470.all().orderByFormula("this.articles.length"; ck descending:K85:8).slice(0; 20)
+		: (($role="Admin") || ($role="Tutor"))
+			$users:=This:C1470.query("role = :1"; $role).orderByFormula("this.articles.length"; ck descending:K85:8).slice(0; 20)
+		: ($role="Learner")
+			$users:=This:C1470.query("role = :1"; $role).orderByFormula("this.comments.length"; ck descending:K85:8).slice(0; 20)
+	End case 
+	$stats:=$users.extract("fullName"; "x"; "articles.length"; "y"; "comments.length"; "z"; "likes.length"; "t")
 	
 	return $stats

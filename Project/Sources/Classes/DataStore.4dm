@@ -1,95 +1,73 @@
 Class extends DataStoreImplementation
 
-exposed function generateData()
+exposed Function generateData()
 	dropDB()
 	initDB()
 	webform.setMessage("Data generated!")
 	
-exposed function getManifestObject() : object
-	var $manifestFile: 4D.File
-	var $manifestObject: object
-	$manifestFile := file("/PACKAGE/Project/Sources/Shared/manifest.json")
-	$manifestObject := JSON Parse($manifestFile.getText())
+exposed Function getManifestObject() : Object
+	var $manifestFile : 4D:C1709.File
+	var $manifestObject : Object
+	$manifestFile:=File:C1566("/PACKAGE/Project/Sources/Shared/manifest.json")
+	$manifestObject:=JSON Parse:C1218($manifestFile.getText())
 	return $manifestObject
 	
-exposed function authentify($email : text; $pwd : text) : cs.UserEntity
-	var $user: cs.UserEntity
-	if ($email # "" && $pwd # "")
-		$user := ds.User.query("email = :1"; $email).first()
-		if ($user # null)
-			if (Verify password hash($pwd; $user.password))
-				use (session.storage)
-					session.storage.playload := new Shared Object("ID"; $user.ID; "email"; $user.email; "role"; $user.role)
-				end use 
-				session.setPrivileges($user.role)
-				web Form.Dlg.hide()
+exposed Function authentify($email : Text; $pwd : Text) : cs:C1710.UserEntity
+	var $user : cs:C1710.UserEntity
+	If (($email#"") && ($pwd#""))
+		$user:=ds:C1482.User.query("email = :1"; $email).first()
+		If ($user#Null:C1517)
+			If (Verify password hash:C1534($pwd; $user.password))
+				Use (Session:C1714.storage)
+					Session:C1714.storage.playload:=New shared object:C1526("ID"; $user.ID; "email"; $user.email; "role"; $user.role)
+				End use 
+				Session:C1714.setPrivileges($user.role)
+				Web Form:C1735.Dlg.hide()
 				return $user
-			else 
-				web Form.setWarning("The username or password is incorrect. Please try again or Forgot Email/Password?")
-			end if 
-		else 
-			web Form.setWarning("The username or password is incorrect. Please try again or Forgot Email/Password?")
-		end if 
-	else 
-		web Form.setWarning("Please fill all required fields")
-	end if 
+			Else 
+				Web Form:C1735.setWarning("The username or password is incorrect. Please try again or Forgot Email/Password?")
+			End if 
+		Else 
+			Web Form:C1735.setWarning("The username or password is incorrect. Please try again or Forgot Email/Password?")
+		End if 
+	Else 
+		Web Form:C1735.setWarning("Please fill all required fields")
+	End if 
 	
-exposed function logout()
-	session.clearPrivileges()
-	use (session.storage)
-		session.storage.playload := new Shared Object()
-	end use 
+exposed Function logout()
+	Session:C1714.clearPrivileges()
+	Use (Session:C1714.storage)
+		Session:C1714.storage.playload:=New shared object:C1526()
+	End use 
 	
-exposed function onLoad()->$user : cs.UserEntity
-	var $currentUser: object
-	var $usersInterface: cs.Qodly.Users
-	var $success: boolean
-	case of 
-		: ((session.storage.playload # null) && (session.storage.playload.ID # null))
-			$user := ds.User.get(session.storage.playload.ID)
-		: ((session.userName # null) && (session.userName # ""))
-			$usersInterface := cs.Qodly.Users.new()
-			$currentUser := $usersInterface.getCurrentUser()
-			if ($currentUser.email # null)
-				$user := ds.User.query("email = :1"; $currentUser.email).first()
-				if ($user = null)
-					$success := ds.User.create($currentUser.email; $currentUser.firstname; $currentUser.lastname; $currentUser.role)
-					if ($success)
-						$user := ds.User.query("email = :1"; $currentUser.email).first()
-					end if 
-				end if 
-				
-				if ($user # null)
-					use (session.storage)
-						session.storage.playload := new Shared Object("ID"; $user.ID; "email"; $user.email; "role"; $user.role)
-					end use 
-					session.setPrivileges($user.role)
-				end if 
-			end if 
-			
-	end case 
+exposed Function onLoad()->$user : cs:C1710.UserEntity
+	var $currentUser : Object
+	var $success : Boolean
+	If ((Session:C1714.storage.playload#Null:C1517) && (Session:C1714.storage.playload.ID#Null:C1517))
+		$user:=ds:C1482.User.get(Session:C1714.storage.playload.ID)
+	End if 
 	
-exposed function resetPassword($email : text)
-	var $user: cs.UserEntity
-	var $mail: cs.Mailer
-	var $password; url: text
-	var $info: object
-	var $sendMail: boolean
-	var $html: text
-	var $emailObj: object := {personalizations: []}
-	url := ""
-	if ($email = "")
-		web Form.setWarning("Please Enter Your Email !!")
-	else 
-		$user := ds.User.query("email = :1"; $email).first()
-		if ($user # null)
-			$password := generatePassword()
-			$user.password := Generate password hash($password)
-			$info := $user.save()
-			if ($info.success)
-				$emailObj.personalizations := [{to: [{$email: $email}]}]
-				$emailObj.subject := "Your KnowBase password reset request"
-				$html := "<!doctype html>"+\
+exposed Function resetPassword($email : Text)
+	var $user : cs:C1710.UserEntity
+	var $mail : cs:C1710.Mailer
+	var $password; $url : Text
+	var $info : Object
+	var $sendMail : Boolean
+	var $html : Text
+	var $emailObj : Object:={personalizations: []}
+	$url:=""
+	If ($email="")
+		Web Form:C1735.setWarning("Please Enter Your Email !!")
+	Else 
+		$user:=ds:C1482.User.query("email = :1"; $email).first()
+		If ($user#Null:C1517)
+			$password:=generatePassword()
+			$user.password:=Generate password hash:C1533($password)
+			$info:=$user.save()
+			If ($info.success)
+				$emailObj.personalizations:=[{to: [{$email: $email}]}]
+				$emailObj.subject:="Your KnowBase password reset request"
+				$html:="<!doctype html>"+\
 					"<html lang=\"en-US\">"+\
 					"<head>"+\
 					"<meta content=\"text/$html; charset=utf-8\" http-equiv=\"Content-Type\" />"+\
@@ -120,7 +98,7 @@ exposed function resetPassword($email : text)
 					"<br/><br/>"+\
 					"To complete your account setup, click the following link and sign in with the given password."+\
 					"</p>"+\
-					"<a href=\""+url+"\" "+\
+					"<a href=\""+$url+"\" "+\
 					"style=\"background: #3976D0; color: #fff; text-decoration: none; font-size: 14px; padding: 10px 24px; border-radius: 50px; display: inline-block;\">"+\
 					"Sign In"+\
 					"</a>"+\
@@ -137,54 +115,54 @@ exposed function resetPassword($email : text)
 					"</table>"+\
 					"</body>"+\
 					"</html>"
-				$emailObj.content := [{type: "text/html"; value: $html}]
-				cs.Mailer.me.send($emailObj)
-				web Form.setMessage("If the email address you provided exists in our system, you will receive an email with instructions to reset your password. Please check your inbox (and spam folder) shortly.")
-			end if 
-		else 
-			web Form.setWarning("Incorrect Email !Please sign up")
-		end if 
-	end if 
+				$emailObj.content:=[{type: "text/html"; value: $html}]
+				cs:C1710.Mailer.me.send($emailObj)
+				Web Form:C1735.setMessage("If the email address you provided exists in our system, you will receive an email with instructions to reset your password. Please check your inbox (and spam folder) shortly.")
+			End if 
+		Else 
+			Web Form:C1735.setWarning("Incorrect Email !Please sign up")
+		End if 
+	End if 
 	
-exposed function register($email : text; $lastname : text; $firstname : text; $password : text; $repassword : text)
-	var $user: cs.UserEntity
-	var $pattern_t: text := "\\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}\\b"
-	var $info: object
-	var $html; url: text
-	var $mail: object := {personalizations: []}
+exposed Function register($email : Text; $lastname : Text; $firstname : Text; $password : Text; $repassword : Text)
+	var $user : cs:C1710.UserEntity
+	var $pattern_t : Text:="\\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}\\b"
+	var $info : Object
+	var $html; $url : Text
+	var $mail : Object:={personalizations: []}
 	// TODO: test it
-	if (($email = "") || ($password = "") || ($repassword = "") || ($lastname = "") || ($firstname = ""))
-		web Form.setWarning("Please fill all required fields")
-	else 
-		case of 
-			: (not(Match regex($pattern_t; $email; 1)))
-				web Form.setWarning("Invalid email format ")
-			: ($password # $repassword)
-				web Form.setWarning("Passwords don't match")
-			else 
-				$user := ds.User.query("email = :1"; $email).first()
-				if ($user # null)
-					web Form.setWarning("Email already exists")
-				else 
-					$user := ds.User.new()
-					$user.firstname := $firstname
-					$user.lastname := $lastname
-					$user.email := $email
-					$user.password := Generate password hash($password)
-					$user.role := "Learner"
-					$user.active := true
-					$user.creationDate := current Date
-					$user.commentMail := true
-					$user.commentNotification := true
-					$user.likeMail := true
-					$user.likeNotification := true
-					$info := $user.save()
-					if ($info.success)
+	If (($email="") || ($password="") || ($repassword="") || ($lastname="") || ($firstname=""))
+		Web Form:C1735.setWarning("Please fill all required fields")
+	Else 
+		Case of 
+			: (Not:C34(Match regex:C1019($pattern_t; $email; 1)))
+				Web Form:C1735.setWarning("Invalid email format ")
+			: ($password#$repassword)
+				Web Form:C1735.setWarning("Passwords don't match")
+			Else 
+				$user:=ds:C1482.User.query("email = :1"; $email).first()
+				If ($user#Null:C1517)
+					Web Form:C1735.setWarning("Email already exists")
+				Else 
+					$user:=ds:C1482.User.new()
+					$user.firstname:=$firstname
+					$user.lastname:=$lastname
+					$user.email:=$email
+					$user.password:=Generate password hash:C1533($password)
+					$user.role:="Learner"
+					$user.active:=True:C214
+					$user.creationDate:=Current date:C33
+					$user.commentMail:=True:C214
+					$user.commentNotification:=True:C214
+					$user.likeMail:=True:C214
+					$user.likeNotification:=True:C214
+					$info:=$user.save()
+					If ($info.success)
 						
-						$mail.personalizations := [{to: [{$email: $email}]}]
-						$mail.subject := "Your KnowBase account is created"
-						url := ""
-						$html := "<!doctype html>"+\
+						$mail.personalizations:=[{to: [{$email: $email}]}]
+						$mail.subject:="Your KnowBase account is created"
+						$url:=""
+						$html:="<!doctype html>"+\
 							"<html lang=\"en-US\">"+\
 							"<head>"+\
 							"<meta content=\"text/$html; charset=utf-8\" http-equiv=\"Content-Type\" />"+\
@@ -212,7 +190,7 @@ exposed function register($email : text; $lastname : text; $firstname : text; $p
 							"<p style=\"font-size: 15px; color: #455056; line-height: 24px;\">"+\
 							"Welcome to KnowBase! Your account has been successfully created. To get started, simply click the link below to log in and begin exploring all the features available to you."+\
 							"</p>"+\
-							"<a href=\""+url+"\" "+\
+							"<a href=\""+$url+"\" "+\
 							"style=\"background: #3976D0; color: #fff; text-decoration: none; font-size: 14px; padding: 10px 24px; border-radius: 50px; display: inline-block;\">"+\
 							"Log In"+\
 							"</a>"+\
@@ -229,12 +207,13 @@ exposed function register($email : text; $lastname : text; $firstname : text; $p
 							"</table>"+\
 							"</body>"+\
 							"</html>"
-						$mail.content := [{type: "text/html"; value: $html}]
-						cs.Mailer.me.send($mail)
-						web Form.setMessage("Email sent successfuly!")
-					else 
-						web Form.setWarning("An error occurred while creating the account.")
-					end if 
-				end if 
-		end case 
-	end if 
+						$mail.content:=[{type: "text/html"; value: $html}]
+						cs:C1710.Mailer.me.send($mail)
+						Web Form:C1735.setMessage("Email sent successfuly!")
+					Else 
+						Web Form:C1735.setWarning("An error occurred while creating the account.")
+					End if 
+				End if 
+		End case 
+	End if 
+	

@@ -1,70 +1,70 @@
 Class extends Entity
 
-exposed alias $articleTags $tags.tag
-exposed alias likedBy likes.likedBy
+exposed Alias articleTags tags.tag
+exposed Alias likedBy likes.likedBy
 
-exposed function get nbrLikes()->$result : text
-	$result := (this.likes.length # 0) ? string(this.likes.length) : "0"
+exposed Function get nbrLikes()->$result : Text
+	$result:=(This.likes.length#0) ? String(This.likes.length) : "0"
 	
-exposed function get nbrComments()->$result : text
-	$result := (this.comments.length # 0) ? string(this.comments.length) : "0"
+exposed Function get nbrComments()->$result : Text
+	$result:=(This.comments.length#0) ? String(This.comments.length) : "0"
 	
-exposed function get nbrTags()->$result : integer
-	$result := this.tags.length
+exposed Function get nbrTags()->$result : Integer
+	$result:=This.tags.length
 	
 	//To be tested after 4 days of the creation of the article
-exposed function get tagNew()->$result : text
-	var $creationDate; limitNew: date
-	$creationDate := this.creationDate
-	limitNew := add to Date($creationDate; 0; 0; 4)
-	$result := (current Date >= limitNew) ? "" : "New"
+exposed Function get tagNew()->$result : Text
+	var $creationDate; $limitNew : Date
+	$creationDate:=This.creationDate
+	$limitNew:=Add to date($creationDate; 0; 0; 4)
+	$result:=(Current date>=$limitNew) ? "" : "New"
 	
-exposed function get isLiked() : boolean
-	var $user: cs.UserEntity
-	if ((session.storage.playload # null) && (session.storage.playload.ID # null))
-		$user := ds.User.get(session.storage.playload.ID)
-		return (this.likedBy.query("ID = :1"; $user.ID).length > 0)
-	end if 
+exposed Function get isLiked() : Boolean
+	var $user : cs.UserEntity
+	If ((Session.storage.playload#Null) && (Session.storage.playload.ID#Null))
+		$user:=ds.User.get(Session.storage.playload.ID)
+		return (This.likedBy.query("ID = :1"; $user.ID).length>0)
+	End if 
 	
-exposed function getTags() : cs.TagSelection
-	return this.tags.tag.copy()
+exposed Function getTags() : cs.TagSelection
+	return This.tags.tag.copy()
 	
-exposed function checkTitle()->$result : boolean
-	if ((this.title = "") || (this.title = null))
-		web Form.setError("Title mustn't be empty!")
-		$result := false
-	else 
-		$result := true
-	end if 
+exposed Function checkTitle()->$result : Boolean
+	If ((This.title="") || (This.title=Null))
+		Web Form.setError("Title mustn't be empty!")
+		$result:=False
+	Else 
+		$result:=True
+	End if 
 	
-exposed function saveArticle($tags : cs.TagSelection) : cs.ArticleEntity
-	var $tag: cs.TagEntity
-	var $articleTag: cs.ArticleTagEntity
-	var $articleTags: cs.ArticleTagSelection
-	var $tagsToDrop; tagsToAdd: cs.TagSelection
-	if (this.articleTags.length > 0)
-		$tagsToDrop := this.articleTags.minus($tags)
-		$articleTags := $tagsToDrop.articles
+exposed Function saveArticle($tags : cs.TagSelection) : cs.ArticleEntity
+	var $tag : cs.TagEntity
+	var $articleTag : cs.ArticleTagEntity
+	var $articleTags : cs.ArticleTagSelection
+	var $tagsToDrop; tagsToAdd : cs.TagSelection
+	If (This.articleTags.length>0)
+		$tagsToDrop:=This.articleTags.minus($tags)
+		$articleTags:=$tagsToDrop.articles
 		$articleTags.drop()
-		tagsToAdd := $tags.minus(this.articleTags)
-		for Each ($tag; tagsToAdd)
-			$articleTag := ds.ArticleTag.new()
-			$articleTag.article := this
-			$articleTag.tag := $tag
+		tagsToAdd:=$tags.minus(This.articleTags)
+		For each ($tag; tagsToAdd)
+			$articleTag:=ds.ArticleTag.new()
+			$articleTag.article:=This
+			$articleTag.tag:=$tag
 			$articleTag.save()
-		end for each 
-	else 
-		for Each ($tag; $tags)
-			$articleTag := ds.ArticleTag.new()
-			$articleTag.article := this
-			$articleTag.tag := $tag
+		End for each 
+	Else 
+		For each ($tag; $tags)
+			$articleTag:=ds.ArticleTag.new()
+			$articleTag.article:=This
+			$articleTag.tag:=$tag
 			$articleTag.save()
-		end for each 
-	end if 
-	if (this.creationDate = null)
-		this.creationDate := current Date()
-		this.creationTime := current Time()
-	end if 
-	this.save()
+		End for each 
+	End if 
+	If (This.creationDate=Null)
+		This.creationDate:=Current date()
+		This.creationTime:=Current time()
+	End if 
+	This.save()
 	
-	return this
+	return This

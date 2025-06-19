@@ -1,41 +1,42 @@
 shared singleton Class constructor()
 	
-shared function send($email : object)->$result : boolean
-	var $headers: object
-	var $request: 4D.HTTPRequest
-	var $option: object
-	var $sendGrid_token; sendGrid_name: text
-	var $setting:cs.SettingEntity
-	if (storage.secrets = null)
-		use (storage)
-			storage.secrets := new Shared Object()
+shared Function send($email : Object)->$result : Boolean
+	var $headers : Object
+	var $request : 4D:C1709.HTTPRequest
+	var $option : Object
+	var $sendGrid_token; sendGrid_name : Text
+	var $setting : cs:C1710.SettingEntity
+	If (Storage:C1525.secrets=Null:C1517)
+		Use (Storage:C1525)
+			Storage:C1525.secrets:=New shared object:C1526()
 			
-			use (storage.secrets)
-				$setting := ds.Setting.query("key = :1"; "sendGrid_token").first() 
-				if($setting#null)
-					$sendGrid_token := $setting.value
-					storage.secrets.token := $sendGrid_token
-				end if 
-				$setting:=ds.Setting.query("key = :1"; "sendGrid_name").first()
-				if($setting#null)
+			Use (Storage:C1525.secrets)
+				$setting:=ds:C1482.Setting.query("key = :1"; "sendGrid_token").first()
+				If ($setting#Null:C1517)
+					$sendGrid_token:=$setting.value
+					Storage:C1525.secrets.token:=$sendGrid_token
+				End if 
+				$setting:=ds:C1482.Setting.query("key = :1"; "sendGrid_name").first()
+				If ($setting#Null:C1517)
 					sendGrid_name:=$setting.value
-					storage.secrets.name := sendGrid_name
-				end if 
-			end use 
-		end use 
-	end if 
+					Storage:C1525.secrets.name:=sendGrid_name
+				End if 
+			End use 
+		End use 
+	End if 
 	
-	if (storage.secrets.name # null && storage.secrets.token # null)
-		$email.from := {$email: storage.secrets.name }
-		$headers := {}
-		$headers["Content-Type"] = "application/json"
-		$headers["Authorization"] = storage.secrets.token
-		$option := {}
-		$option.headers := $headers
-		$option.method := "POST"
-		$option.body := $email
-		$request := 4D.HTTPRequest.new("https://api.sendgrid.com/v3/mail/send"; $option).wait()
-		if ($request.response # null)
-			$result := ($request.response.status = 202)
-		end if 
-	end if 
+	If (Storage:C1525.secrets.name#Null:C1517 && Storage:C1525.secrets.token#Null:C1517)
+		$email.from:={$email: Storage:C1525.secrets.name}
+		$headers:={}
+		$headers["Content-Type"]:="application/json"
+		$headers["Authorization"]:=Storage:C1525.secrets.token
+		$option:={}
+		$option.headers:=$headers
+		$option.method:="POST"
+		$option.body:=$email
+		$request:=4D:C1709.HTTPRequest.new("https://api.sendgrid.com/v3/mail/send"; $option).wait()
+		If ($request.response#Null:C1517)
+			$result:=($request.response.status=202)
+		End if 
+	End if 
+	

@@ -1,13 +1,13 @@
 //%attributes = {}
 
-var $ES: 4D.EntitySelection
+var $es : 4D:C1709.EntitySelection
 
-$ES := ds.Setting.all().drop()
-$ES := ds.Tag.all().drop()
-$ES := ds.Category.all().drop()
-$ES := ds.Comment.all().drop()
-$ES := ds.Like.all().drop()
-$ES := ds.Notification.all().drop()
-$ES := ds.ArticleTag.all().drop()
-$ES:= ds.User.all().drop()
-$ES := ds.Article.all().drop()
+$es:=ds:C1482.Setting.all().drop()
+$es:=ds:C1482.Tag.all().drop()
+$es:=ds:C1482.Category.all().drop()
+$es:=ds:C1482.Comment.all().drop()
+$es:=ds:C1482.Like.all().drop()
+$es:=ds:C1482.Notification.all().drop()
+$es:=ds:C1482.ArticleTag.all().drop()
+$es:=ds:C1482.User.all().drop()
+$es:=ds:C1482.Article.all().drop()

@@ -1,43 +1,43 @@
 Class extends DataClass
 
-exposed function delete($article : cs.ArticleEntity)
-	var $user: cs.UserEntity
-	var $result: cs.ArticleSelection
-	var $info: object
-	if (session.storage.playload # null && session.storage.playload.ID # null)
-		$user := ds.User.get(session.storage.playload.ID)
-		$result := this.query("likedBy.ID = :1 and article.ID = :2"; $user.ID; $article.ID)
-		$info := $result.drop()
-		web Form.setWarning("You have disliked this article!")
+exposed Function delete($article : cs:C1710.ArticleEntity)
+	var $user : cs:C1710.UserEntity
+	var $result : cs:C1710.ArticleSelection
+	var $info : Object
+	If (Session:C1714.storage.playload#Null:C1517 && Session:C1714.storage.playload.ID#Null:C1517)
+		$user:=ds:C1482.User.get(Session:C1714.storage.playload.ID)
+		$result:=This:C1470.query("likedBy.ID = :1 and article.ID = :2"; $user.ID; $article.ID)
+		$info:=$result.drop()
+		Web Form:C1735.setWarning("You have disliked this article!")
 		// TODO: delete Notification
 		// ds.Notification.deleteNotification($user; $article; "like")
-	end if 
+	End if 
 	
-exposed function add($article : cs.ArticleEntity)
+exposed Function add($article : cs:C1710.ArticleEntity)
 	// TODO: redo it
-	var $user; articleOwner: cs.UserEntity
-	var $like: cs.LikeEntity
-	var $info; emailObj: object
-	var $html; url: text
-	if (session.storage.playload # null && session.storage.playload.ID # null)
-		articleOwner := $article.user
-		$user := ds.User.get(session.storage.playload.ID)
-		$like := this.new()
-		$like.likeDate := current Date
-		$like.likeTime := current Time
-		$like.likedBy := $user
-		$like.article := $article
-		$info := $like.save()
-		web Form.setMessage("You have liked this article!")
-		if (articleOwner.likeNotification)
-			ds.Notification.generateNotifs(articleOwner; $user; $article; "like"; ""; true)
-		end if 
-		if (articleOwner.likeMail)
-			emailObj := {}
-			emailObj.personalizations := [{to: [{email: articleOwner.email}]}]
-			emailObj.subject := "New like on "+$article.title
-			url := ""
-			$html := "<!doctype html>"+\
+	var $user; $articleOwner : cs:C1710.UserEntity
+	var $like : cs:C1710.LikeEntity
+	var $info; $emailObj : Object
+	var $html; url : Text
+	If (Session:C1714.storage.playload#Null:C1517 && Session:C1714.storage.playload.ID#Null:C1517)
+		$articleOwner:=$article.user
+		$user:=ds:C1482.User.get(Session:C1714.storage.playload.ID)
+		$like:=This:C1470.new()
+		$like.likeDate:=Current date:C33
+		$like.likeTime:=Current time:C178
+		$like.likedBy:=$user
+		$like.article:=$article
+		$info:=$like.save()
+		Web Form:C1735.setMessage("You have liked this article!")
+		If ($articleOwner.likeNotification)
+			ds:C1482.Notification.generateNotifs($articleOwner; $user; $article; "like"; ""; True:C214)
+		End if 
+		If (articleOwner.likeMail)
+			$emailObj:={}
+			$emailObj.personalizations:=[{to: [{email: $articleOwner.email}]}]
+			$emailObj.subject:="New like on "+$article.title
+			$url:=""
+			$html:="<!doctype html>"+\
 				"<html lang=\"en-US\">"+\
 				"<head>"+\
 				"<meta content=\"text/$html; charset=utf-8\" http-equiv=\"Content-Type\" />"+\
@@ -72,7 +72,7 @@ exposed function add($article : cs.ArticleEntity)
 				"<br/>"+\
 				"To see this like, simply visit the following link."+\
 				"</p>"+\
-				"<a href=\""+url+"\""+\
+				"<a href=\""+$url+"\""+\
 				"style=\"background:#3976D0;text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;\">"+\
 				"Show"+\
 				"</a>"+\
@@ -84,7 +84,8 @@ exposed function add($article : cs.ArticleEntity)
 				"</table>"+\
 				"</body>"+\
 				"</html>"
-			emailObj.content := [{type: "text/html"; value: $html}]
-			cs.Mailer.me.send(emailObj)
-		end if 
-	end if 
+			$emailObj.content:=[{type: "text/html"; value: $html}]
+			cs:C1710.Mailer.me.send($emailObj)
+		End if 
+	End if 
+	
