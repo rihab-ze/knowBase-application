@@ -1,0 +1,34 @@
+{
+	"classes": [
+		{
+			"name": "pointerCursor",
+			"content": "self {\n\tcursor: pointer;\n}",
+			"parentId": null,
+			"id": "Y-aM3goh9SY40dHBT5pOV"
+		},
+		{
+			"name": "matrixTransparentBG",
+			"content": "self .FdVirtualGrid > .innerScrollContainer > div:hover {\n\tbackground: transparent; \n}\nself .FdVirtualGrid > div > .selected {\n\tbackground-color: transparent;\n}",
+			"parentId": null,
+			"id": "oeQT3nTFnePqMI78BWqHl"
+		},
+		{
+			"name": "isNewCss",
+			"content": "self:has(p span[title=\"New\"]) {\n\tbackground: #7FD0C2;\n}",
+			"parentId": null,
+			"id": "b2izc83FwJYB5SuGt-whU"
+		},
+		{
+			"name": "flexGrow",
+			"content": "self {\n\tflex-grow: 1;\n}",
+			"parentId": null,
+			"id": "5CQ81YX9FuO7YN2YafTWK"
+		},
+		{
+			"name": "visibility",
+			"content": "self {\n\tdisplay: none !important;\n}",
+			"parentId": null,
+			"id": "KYWJrJIrqyP1eTJVFHxf1"
+		}
+	]
+}

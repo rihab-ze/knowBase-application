@@ -1,0 +1,49 @@
+{
+  "applicationName": "KnowBase",
+  "version": "1.1.0",
+  "description": "A versatile platform for knowledge sharing and blogging.",
+  "details": "KnowBase empowers users to share and discover knowledge seamlessly. With integrated blogging capabilities, it allows individuals and teams to create, organize, and publish content effectively. Perfect for communities, educators, and professionals looking to collaborate and share insights.",
+  "visuals": [
+    {
+      "description": "Article list",
+      "image": "/$shared/visuals/articleList.png",
+      "path": "/$shared/visuals/articleList.png"
+    },
+    {
+      "description": "Article details",
+      "image": "/$shared/visuals/articleDetail.png",
+      "path": "/$shared/visuals/articleDetail.png"
+    },
+    {
+      "description": "New Article",
+      "image": "/$shared/visuals/newArticle.png",
+      "path": "/$shared/visuals/newArticle.png"
+    },
+    {
+      "description": "Settings page",
+      "image": "/$shared/visuals/settingPage.png",
+      "path": "/$shared/visuals/settingPage.png"
+    },
+    {
+      "description": "Profile page",
+      "image": "/$shared/visuals/profilePage.png",
+      "path": "/$shared/visuals/profilePage.png"
+    },
+    {
+      "description": "Dashboard",
+      "image": "/$shared/visuals/dashboard.png",
+      "path": "/$shared/visuals/dashboard.png"
+    }
+  ],
+  "logo": {
+    "small": "logo_small_path",
+    "large": "/$shared/logos/Q-2.svg"
+  },
+  "qodlyVersion": "all",
+  "author": {
+    "name": "Qodly",
+    "url": "https://qodly.com/"
+  },
+  "category": "Qodly starters",
+  "language": "English"
+}
