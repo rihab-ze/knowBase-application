@@ -1,0 +1,30 @@
+{
+	"conditions": [
+		{
+			"id": "1tzSo5Zfbqgvs2mwTx45t1",
+			"type": "combination",
+			"op": "or",
+			"conditions": [
+				{
+					"id": "hherJ4tM1d3BJsqYJkz1dt",
+					"type": "datasource",
+					"name": "title null",
+					"value": "",
+					"valueType": "hardCoded",
+					"path": "shared:article.title",
+					"op": "isnull"
+				},
+				{
+					"id": "qPcgTnT2zNHP23UwiRBS4p",
+					"type": "datasource",
+					"name": "title empty",
+					"value": "",
+					"valueType": "hardCoded",
+					"path": "shared:article.title",
+					"op": "eq"
+				}
+			],
+			"name": "group"
+		}
+	]
+}

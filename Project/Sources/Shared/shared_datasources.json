@@ -1,0 +1,66 @@
+{
+	"shared": [
+		{
+			"id": "categories",
+			"type": "entitysel",
+			"dataclass": "Category",
+			"namespace": "shared",
+			"initialValue": "",
+			"depth": null,
+			"pageSize": 100
+		},
+		{
+			"id": "tags",
+			"type": "entitysel",
+			"dataclass": "Tag",
+			"namespace": "shared",
+			"initialValue": "",
+			"depth": null,
+			"pageSize": 100
+		},
+		{
+			"id": "articles",
+			"type": "entitysel",
+			"dataclass": "Article",
+			"namespace": "shared",
+			"initialValue": "all",
+			"depth": null,
+			"pageSize": ""
+		},
+		{
+			"id": "article",
+			"type": "entity",
+			"dataclass": "Article",
+			"from": "articles",
+			"namespace": "shared",
+			"initialValue": "first",
+			"depth": null
+		}
+	],
+	"user": [
+		{
+			"id": "connectedUser",
+			"type": "entity",
+			"dataclass": "User",
+			"namespace": "user",
+			"initialValue": "",
+			"depth": null
+		}
+	],
+	"UI": [
+		{
+			"id": "page",
+			"type": "scalar",
+			"namespace": "UI",
+			"dataType": "string",
+			"initialValue": ""
+		},
+		{
+			"id": "dialog",
+			"type": "scalar",
+			"namespace": "UI",
+			"dataType": "string",
+			"initialValue": ""
+		}
+	]
+}

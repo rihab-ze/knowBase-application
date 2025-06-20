@@ -1,0 +1,895 @@
+{
+	"metadata": {
+		"v": "1.0",
+		"datasources": [],
+		"styles": []
+	},
+	"components": {
+		"ROOT": {
+			"type": {
+				"resolvedName": "Container"
+			},
+			"isCanvas": true,
+			"props": {
+				"classNames": [],
+				"events": [],
+				"airyMode": false,
+				"className": "bg-white h-full w-full px-6",
+				"style": {}
+			},
+			"displayName": "Page",
+			"custom": {},
+			"parent": "",
+			"hidden": false,
+			"nodes": [
+				"DlARk-2i6a",
+				"JtQUBC2ZPh",
+				"N9EIplyBJm",
+				"apu34dQdiq",
+				"bqNf4-Nt8g"
+			],
+			"linkedNodes": {}
+		},
+		"DlARk-2i6a": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"display": "flex",
+					"paddingTop": "0px",
+					"paddingRight": "0px",
+					"paddingBottom": "0px",
+					"paddingLeft": "0px",
+					"alignItems": "start",
+					"gap": "20px",
+					"flexDirection": "column",
+					"justifyContent": "flex-start"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "ROOT",
+			"hidden": false,
+			"nodes": [
+				"AbiEYzlDhU",
+				"tSOjnJfwjc"
+			],
+			"linkedNodes": {}
+		},
+		"AbiEYzlDhU": {
+			"type": {
+				"resolvedName": "Text"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"doc": [
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"text": "Notifications Settings",
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false
+							}
+						]
+					}
+				],
+				"datasource": "",
+				"style": {
+					"color": "#3976D0",
+					"fontSize": "28px",
+					"fontWeight": "500"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Text",
+			"custom": {},
+			"parent": "DlARk-2i6a",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"tSOjnJfwjc": {
+			"type": {
+				"resolvedName": "Text"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"doc": [
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"text": "We may still send you important notifications about your account outside of your notification settings",
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false
+							}
+						]
+					}
+				],
+				"datasource": "",
+				"style": {
+					"color": "#666666",
+					"fontSize": "18px",
+					"textAlign": "justify"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Text",
+			"custom": {},
+			"parent": "DlARk-2i6a",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"JtQUBC2ZPh": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"marginTop": "50px",
+					"display": "flex",
+					"flexDirection": "column",
+					"gap": "10px",
+					"paddingLeft": "0px",
+					"paddingRight": "0px",
+					"paddingBottom": "0px",
+					"paddingTop": "0px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "ROOT",
+			"hidden": false,
+			"nodes": [
+				"Q3Wplm2v_m",
+				"Y17zDSkKpU"
+			],
+			"linkedNodes": {}
+		},
+		"Q3Wplm2v_m": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"paddingLeft": "0px",
+					"paddingRight": "0px",
+					"paddingBottom": "0px",
+					"paddingTop": "0px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "JtQUBC2ZPh",
+			"hidden": false,
+			"nodes": [
+				"8QW_BrkJqL"
+			],
+			"linkedNodes": {}
+		},
+		"8QW_BrkJqL": {
+			"type": {
+				"resolvedName": "Text"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"doc": [
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"text": "Comments",
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false
+							}
+						]
+					}
+				],
+				"datasource": "",
+				"style": {
+					"fontSize": "22px",
+					"color": "#3976D0"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Text",
+			"custom": {},
+			"parent": "Q3Wplm2v_m",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"Y17zDSkKpU": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"display": "flex",
+					"paddingLeft": "0px",
+					"paddingRight": "0px",
+					"paddingBottom": "0px",
+					"paddingTop": "0px",
+					"gap": "10px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "JtQUBC2ZPh",
+			"hidden": false,
+			"nodes": [
+				"M0RaoW_Nfl",
+				"mQyih5-U4_"
+			],
+			"linkedNodes": {}
+		},
+		"M0RaoW_Nfl": {
+			"type": {
+				"resolvedName": "Text"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"doc": [
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"text": "These are notifications for comments on your blog",
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false
+							}
+						]
+					}
+				],
+				"datasource": "",
+				"style": {
+					"width": "50%",
+					"color": "#979797",
+					"fontSize": "18px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Text",
+			"custom": {},
+			"parent": "Y17zDSkKpU",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"mQyih5-U4_": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"display": "flex",
+					"flexDirection": "column",
+					"gap": "10px",
+					"paddingLeft": "0px",
+					"paddingRight": "0px",
+					"paddingBottom": "0px",
+					"paddingTop": "0px",
+					"width": "50%",
+					"justifyContent": "flex-start",
+					"alignItems": "start"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "Y17zDSkKpU",
+			"hidden": false,
+			"nodes": [
+				"ijx0EmPQ5E",
+				"Dv3e3E7jrl"
+			],
+			"linkedNodes": {}
+		},
+		"N9EIplyBJm": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"marginTop": "50px",
+					"display": "flex",
+					"flexDirection": "column",
+					"gap": "10px",
+					"paddingLeft": "0px",
+					"paddingRight": "0px",
+					"paddingBottom": "0px",
+					"paddingTop": "0px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "ROOT",
+			"hidden": false,
+			"nodes": [
+				"H2_fMj_Jo_",
+				"-JLn2A5R_J"
+			],
+			"linkedNodes": {}
+		},
+		"H2_fMj_Jo_": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"paddingLeft": "0px",
+					"paddingRight": "0px",
+					"paddingBottom": "0px",
+					"paddingTop": "0px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "N9EIplyBJm",
+			"hidden": false,
+			"nodes": [
+				"0Pb-oRof3y"
+			],
+			"linkedNodes": {}
+		},
+		"0Pb-oRof3y": {
+			"type": {
+				"resolvedName": "Text"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"doc": [
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"text": "Likes",
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false
+							}
+						]
+					}
+				],
+				"datasource": "",
+				"style": {
+					"fontSize": "22px",
+					"color": "#3976D0"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Text",
+			"custom": {},
+			"parent": "H2_fMj_Jo_",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"-JLn2A5R_J": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"display": "flex",
+					"paddingLeft": "0px",
+					"paddingRight": "0px",
+					"paddingBottom": "0px",
+					"paddingTop": "0px",
+					"gap": "10px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "N9EIplyBJm",
+			"hidden": false,
+			"nodes": [
+				"6OKpk_cPid",
+				"WCYsYFNVV6"
+			],
+			"linkedNodes": {}
+		},
+		"6OKpk_cPid": {
+			"type": {
+				"resolvedName": "Text"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"doc": [
+					{
+						"type": "paragraph",
+						"children": [
+							{
+								"bold": false,
+								"italic": false,
+								"underlined": false,
+								"strikethrough": false,
+								"text": "These are notifications for when someone likes your blog"
+							}
+						]
+					}
+				],
+				"datasource": "",
+				"style": {
+					"width": "50%",
+					"color": "#979797",
+					"fontSize": "18px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Text",
+			"custom": {},
+			"parent": "-JLn2A5R_J",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"WCYsYFNVV6": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"display": "flex",
+					"flexDirection": "column",
+					"gap": "10px",
+					"paddingLeft": "0px",
+					"paddingRight": "0px",
+					"paddingBottom": "0px",
+					"paddingTop": "0px",
+					"width": "50%",
+					"justifyContent": "flex-start",
+					"alignItems": "start"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "-JLn2A5R_J",
+			"hidden": false,
+			"nodes": [
+				"w2qcZ77SVf",
+				"ZIJybeA6ud"
+			],
+			"linkedNodes": {}
+		},
+		"apu34dQdiq": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"marginTop": "50px",
+					"display": "flex",
+					"flexDirection": "column",
+					"gap": "10px",
+					"paddingLeft": "0px",
+					"paddingRight": "0px",
+					"paddingBottom": "0px",
+					"paddingTop": "0px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "ROOT",
+			"hidden": false,
+			"nodes": [
+				"tEaCvCqxBx"
+			],
+			"linkedNodes": {}
+		},
+		"tEaCvCqxBx": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"style": {
+					"paddingLeft": "0px",
+					"paddingRight": "0px",
+					"paddingBottom": "0px",
+					"paddingTop": "0px"
+				},
+				"iterableChild": true
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "apu34dQdiq",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"ijx0EmPQ5E": {
+			"type": {
+				"resolvedName": "Checkbox"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"label": "label",
+				"variant": "switch",
+				"labelPosition": "right",
+				"iterableChild": true
+			},
+			"displayName": "CheckBox",
+			"custom": {},
+			"parent": "mQyih5-U4_",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {
+				"label": "SH4VPER_xG",
+				"CheckboxInput": "G272qN_A6W"
+			}
+		},
+		"SH4VPER_xG": {
+			"type": {
+				"resolvedName": "Label"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"moveable": false,
+				"htmlfor": "ijx0EmPQ5E",
+				"text": "<span style=\"color: rgb(102, 102, 102);\">Notifications center</span>",
+				"style": {
+					"color": "#666666",
+					"fontWeight": "500"
+				},
+				"deletable": true
+			},
+			"displayName": "Label",
+			"custom": {},
+			"parent": "ijx0EmPQ5E",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"G272qN_A6W": {
+			"type": {
+				"resolvedName": "CheckboxInput"
+			},
+			"isCanvas": false,
+			"props": {
+				"classNames": [],
+				"events": [],
+				"deletable": false,
+				"datasource": "user:connectedUser.commentNotification",
+				"iterableChild": true
+			},
+			"displayName": "Checkbox Input",
+			"custom": {},
+			"parent": "ijx0EmPQ5E",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"Dv3e3E7jrl": {
+			"type": {
+				"resolvedName": "Checkbox"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"label": "label",
+				"variant": "switch",
+				"labelPosition": "right",
+				"iterableChild": true
+			},
+			"displayName": "CheckBox",
+			"custom": {},
+			"parent": "mQyih5-U4_",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {
+				"label": "8aVElrbROc",
+				"CheckboxInput": "hQbEOePVea"
+			}
+		},
+		"8aVElrbROc": {
+			"type": {
+				"resolvedName": "Label"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"moveable": false,
+				"htmlfor": "ijx0EmPQ5E",
+				"text": "<span style=\"color: rgb(102, 102, 102);\">Email</span>",
+				"style": {
+					"color": "#666666",
+					"fontWeight": "500"
+				},
+				"deletable": true
+			},
+			"displayName": "Label",
+			"custom": {},
+			"parent": "Dv3e3E7jrl",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"hQbEOePVea": {
+			"type": {
+				"resolvedName": "CheckboxInput"
+			},
+			"isCanvas": false,
+			"props": {
+				"classNames": [],
+				"events": [],
+				"deletable": false,
+				"datasource": "user:connectedUser.commentMail",
+				"iterableChild": true
+			},
+			"displayName": "Checkbox Input",
+			"custom": {},
+			"parent": "Dv3e3E7jrl",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"w2qcZ77SVf": {
+			"type": {
+				"resolvedName": "Checkbox"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"label": "label",
+				"variant": "switch",
+				"labelPosition": "right",
+				"iterableChild": true
+			},
+			"displayName": "CheckBox",
+			"custom": {},
+			"parent": "WCYsYFNVV6",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {
+				"label": "t4rQZPr5zQ",
+				"CheckboxInput": "N3no3fNO2b"
+			}
+		},
+		"t4rQZPr5zQ": {
+			"type": {
+				"resolvedName": "Label"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"moveable": false,
+				"htmlfor": "ijx0EmPQ5E",
+				"text": "<span style=\"color: rgb(102, 102, 102);\">Notifications center</span>",
+				"style": {
+					"color": "#666666",
+					"fontWeight": "500"
+				},
+				"deletable": true
+			},
+			"displayName": "Label",
+			"custom": {},
+			"parent": "w2qcZ77SVf",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"N3no3fNO2b": {
+			"type": {
+				"resolvedName": "CheckboxInput"
+			},
+			"isCanvas": false,
+			"props": {
+				"classNames": [],
+				"events": [],
+				"deletable": false,
+				"datasource": "user:connectedUser.likeNotification",
+				"iterableChild": true
+			},
+			"displayName": "Checkbox Input",
+			"custom": {},
+			"parent": "w2qcZ77SVf",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"ZIJybeA6ud": {
+			"type": {
+				"resolvedName": "Checkbox"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"label": "label",
+				"variant": "switch",
+				"labelPosition": "right",
+				"iterableChild": true
+			},
+			"displayName": "CheckBox",
+			"custom": {},
+			"parent": "WCYsYFNVV6",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {
+				"label": "wJOQPxLzSo",
+				"CheckboxInput": "jOcfTKz414"
+			}
+		},
+		"wJOQPxLzSo": {
+			"type": {
+				"resolvedName": "Label"
+			},
+			"isCanvas": false,
+			"props": {
+				"events": [],
+				"moveable": false,
+				"htmlfor": "ijx0EmPQ5E",
+				"text": "<span style=\"color: rgb(102, 102, 102);\">Email</span>",
+				"style": {
+					"color": "#666666",
+					"fontWeight": "500"
+				},
+				"deletable": true
+			},
+			"displayName": "Label",
+			"custom": {},
+			"parent": "ZIJybeA6ud",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"jOcfTKz414": {
+			"type": {
+				"resolvedName": "CheckboxInput"
+			},
+			"isCanvas": false,
+			"props": {
+				"classNames": [],
+				"events": [],
+				"deletable": false,
+				"datasource": "user:connectedUser.likeMail",
+				"iterableChild": true
+			},
+			"displayName": "Checkbox Input",
+			"custom": {},
+			"parent": "ZIJybeA6ud",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		},
+		"bqNf4-Nt8g": {
+			"type": {
+				"resolvedName": "StyleBox"
+			},
+			"isCanvas": true,
+			"props": {
+				"events": [],
+				"iterableChild": true,
+				"style": {
+					"display": "flex",
+					"justifyContent": "flex-end"
+				}
+			},
+			"displayName": "Stylebox",
+			"custom": {},
+			"parent": "ROOT",
+			"hidden": false,
+			"nodes": [
+				"jh7u65gxqB"
+			],
+			"linkedNodes": {}
+		},
+		"jh7u65gxqB": {
+			"type": {
+				"resolvedName": "Button"
+			},
+			"isCanvas": false,
+			"props": {
+				"text": "Save Changes",
+				"classNames": [],
+				"events": [
+					{
+						"type": "simple-action",
+						"id": "4GWYdPWBjNrXhkooYgAYH7",
+						"events": [
+							"onclick"
+						],
+						"action": "save",
+						"actionType": "datasource",
+						"datasource": {
+							"name": "connectedUser",
+							"type": "entity",
+							"namespace": "user"
+						},
+						"feedback": {
+							"enabled": true
+						}
+					}
+				],
+				"iconPosition": "hidden",
+				"style": {
+					"display": "flex",
+					"width": "195px",
+					"height": "61px",
+					"justifyContent": "center",
+					"alignItems": "center",
+					"backgroundColor": "#3976D0",
+					"borderRadius": "10px",
+					"fontWeight": "400",
+					"borderWidth": "1px",
+					"borderColor": "#3976D0"
+				}
+			},
+			"displayName": "Button",
+			"custom": {},
+			"parent": "bqNf4-Nt8g",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {
+				"icon": "00p7VACEAH"
+			}
+		},
+		"00p7VACEAH": {
+			"type": {
+				"resolvedName": "Icon"
+			},
+			"isCanvas": false,
+			"props": {
+				"classNames": [],
+				"events": [],
+				"icon": "fa-star"
+			},
+			"displayName": "Icon",
+			"custom": {},
+			"parent": "jh7u65gxqB",
+			"hidden": false,
+			"nodes": [],
+			"linkedNodes": {}
+		}
+	}
+}

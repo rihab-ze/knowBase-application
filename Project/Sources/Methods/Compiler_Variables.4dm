@@ -1,0 +1,13 @@
+//%attributes = {"invisible":true}
+C_VARIANT:C1683(article)
+C_OBJECT:C1216(articleOwner)
+C_OBJECT:C1216(emailObj)
+C_VARIANT:C1683(Hour minSec)
+C_LONGINT:C283(i)
+C_LONGINT:C283(j)
+C_LONGINT:C283(randomIndexUser)
+C_TEXT:C284(sendGrid_name)
+C_OBJECT:C1216(tagsToAdd)
+C_TIME:C306(timeLeft)
+C_TEXT:C284(url)
+C_VARIANT:C1683(webform)
