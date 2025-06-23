@@ -194,7 +194,6 @@ $categories:=ds:C1482.Category.all()
 // generate Tag
 var $fakeTags : Collection
 var $tag : cs:C1710.TagEntity
-
 $fakeTags:=[]
 $fakeTags.push(\
 New object:C1471("label"; "CodeRefactoring"); \
@@ -503,7 +502,7 @@ var $randomNumber : Integer
 
 $randomNumber:=(Random:C100%10)
 $j:=0
-While (j<$randomNumber)
+While ($j<$randomNumber)
 	For ($i; 0; $users.length-1)
 		$like:=ds:C1482.Like.new()
 		$like.likeDate:=Current date:C33
@@ -519,7 +518,7 @@ End while
 
 //Generate Comment
 var $fakeComments : Collection
-var $randomIndexArticle; randomIndexUser : Integer
+var $randomIndexArticle; $randomIndexUser : Integer
 var $comment : cs:C1710.CommentEntity
 
 $fakeComments:=[]
@@ -580,10 +579,10 @@ While ($j<$randomNumber)
 		$comment.creationTime:=$item.creationTime
 		$randomIndexArticle:=(Random:C100%$articles.length)
 		$comment.article:=$articles[$randomIndexArticle]
-		randomIndexUser:=(Random:C100%$users.length)
-		$comment.user:=$users[randomIndexUser]
+		$randomIndexUser:=(Random:C100%$users.length)
+		$comment.user:=$users[$randomIndexUser]
 		$comment.save()
-		$notification:=ds:C1482.Notification.generateNotifs($articles[$randomIndexArticle].user; $users[randomIndexUser]; $articles[$randomIndexArticle]; "comment")
+		$notification:=ds:C1482.Notification.generateNotifs($articles[$randomIndexArticle].user; $users[$randomIndexUser]; $articles[$randomIndexArticle]; "comment")
 	End for each 
 	$j:=$j+1
 End while 
