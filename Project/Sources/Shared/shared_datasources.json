@@ -25,7 +25,19 @@
 			"namespace": "shared",
 			"initialValue": "all",
 			"depth": null,
-			"pageSize": ""
+			"pageSize": "",
+			"events": [
+				{
+					"type": "navigation",
+					"id": "ikiChmoqHGcyYvP7eczvaV",
+					"events": [],
+					"externalLink": false,
+					"loader": "",
+					"parent": "webform-loader-self",
+					"target": "articleDetail",
+					"isHardCoded": true
+				}
+			]
 		},
 		{
 			"id": "article",

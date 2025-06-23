@@ -39,7 +39,7 @@ exposed function getByFilter($filter : text) : cs.ArticleSelection
 	end if 
 	return $articles
 	
-exposed function $search($filter : text; $search : text; $category : cs.CategoryEntity; $tag : cs.TagEntity) : cs.ArticleSelection
+exposed function search($filter : text; $search : text; $category : cs.CategoryEntity; $tag : cs.TagEntity) : cs.ArticleSelection
 	var $articles: cs.ArticleSelection
 	var $user: cs.UserEntity
 	case of 
