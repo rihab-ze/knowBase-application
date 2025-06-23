@@ -11,7 +11,7 @@ exposed Function get commentAge()->$message : Text
 		$commentTime:=Time:C179(This:C1470.creationTime)
 		If ($commentDate=Current date:C33)
 			$timeLeft:=Current time:C178-$commentTime
-			$message:=String:C10($timeLeft; Hour minSec)
+			$message:=String:C10($timeLeft; Hour min sec:K7:3)
 		Else 
 			$dateLeft:=Current date:C33-$commentDate
 			$message:=($dateLeft=1) ? String:C10($dateLeft)+" Day Ago" : String:C10($dateLeft)+" Days Ago"
