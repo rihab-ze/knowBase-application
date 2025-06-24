@@ -32,25 +32,29 @@
 				"name": "dropdownParent",
 				"content": "self{\n\tposition: relative;\n\tdisplay: inline-block;\n}\n\nself:hover .dropdownChild{\n\tdisplay: block !important;\n}",
 				"parentId": null,
-				"id": "4wn0FTHz9XLwHMLkmbKPt"
+				"id": "4wn0FTHz9XLwHMLkmbKPt",
+				"scope": "local"
 			},
 			{
 				"name": "dropdownChild",
 				"content": "self{\n\tdisplay: none !important;\n\toverflow: visible;\n}",
 				"parentId": null,
-				"id": "gBDih43vj4NJ-xl8ZZVj0"
+				"id": "gBDih43vj4NJ-xl8ZZVj0",
+				"scope": "local"
 			},
 			{
 				"name": "respnsiveButton",
 				"content": "@media screen and (max-width : 500px) {\n\tself {\n\t\tfont-size: 10px !important;\n\t\twidth: auto;\n\t}\n}",
 				"parentId": null,
-				"id": "SpiDoWnhnC-YlMKqVR2z6"
+				"id": "SpiDoWnhnC-YlMKqVR2z6",
+				"scope": "local"
 			},
 			{
 				"name": "lineBreak",
-				"content": "self {\n\twhite-space: normal;\n}",
+				"content": "self {\n\twhite-space: normal;\n}\nself input{\n\twidth: 100% !important;\n}",
 				"parentId": null,
-				"id": "2pmSyewKnzj4lyHlme7Lt"
+				"id": "2pmSyewKnzj4lyHlme7Lt",
+				"scope": "local"
 			}
 		],
 		"states": [
@@ -496,7 +500,10 @@
 				"readonly": false,
 				"classNames": [
 					"lineBreak"
-				]
+				],
+				"revealPassword": true,
+				"eyePosition": "right",
+				"intervals": []
 			},
 			"displayName": "Input",
 			"custom": {},
@@ -892,7 +899,7 @@
 						"returns": {
 							"name": "result",
 							"type": "cs.ArticleEntity",
-							"datasource": "shared:"
+							"datasource": ""
 						}
 					},
 					{
@@ -1064,7 +1071,7 @@
 			},
 			"displayName": "Stylebox",
 			"custom": {
-				"contentHeight": 48
+				"contentHeight": 39
 			},
 			"parent": "_q62dwmpzt",
 			"hidden": false,
@@ -1182,7 +1189,7 @@
 			},
 			"displayName": "Stylebox",
 			"custom": {
-				"contentHeight": 48
+				"contentHeight": 39
 			},
 			"parent": "5VU4S4ETJj",
 			"hidden": false,
@@ -1411,7 +1418,7 @@
 						"returns": {
 							"name": "result",
 							"type": "cs.ArticleEntity",
-							"datasource": "shared:"
+							"datasource": ""
 						}
 					},
 					{
@@ -1506,7 +1513,9 @@
 				"iterableChild": true,
 				"style": {
 					"color": "#454545"
-				}
+				},
+				"type": "two-state",
+				"size": "md"
 			},
 			"displayName": "CheckBox",
 			"custom": {},
@@ -1533,7 +1542,8 @@
 					"fontWeight": "500",
 					"cursor": "auto"
 				},
-				"text": "Public"
+				"text": "Public",
+				"deletable": true
 			},
 			"displayName": "Label",
 			"custom": {},
@@ -1552,7 +1562,8 @@
 				"events": [],
 				"deletable": false,
 				"datasource": "shared:article.public",
-				"style": {}
+				"style": {},
+				"iterableChild": true
 			},
 			"displayName": "Checkbox Input",
 			"custom": {},

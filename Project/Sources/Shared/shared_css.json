@@ -8,7 +8,7 @@
 		},
 		{
 			"name": "matrixTransparentBG",
-			"content": "self .FdVirtualGrid > .innerScrollContainer > div:hover {\n\tbackground: transparent; \n}\nself .FdVirtualGrid > div > .selected {\n\tbackground-color: transparent;\n}",
+			"content": "self .FdVirtualGrid > .innerScrollContainer > div:hover {\n\tbackground: transparent; \n}\nself .FdVirtualGrid > div > .selected {\n\tbackground-color: transparent !important;\n}",
 			"parentId": null,
 			"id": "oeQT3nTFnePqMI78BWqHl"
 		},
