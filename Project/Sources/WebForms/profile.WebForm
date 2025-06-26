@@ -583,7 +583,9 @@
 				"datasource": "user:connectedUser.firstname",
 				"moveable": false,
 				"placeholder": "Write your first name",
-				"readonly": false
+				"readonly": false,
+				"revealPassword": true,
+				"eyePosition": "right"
 			},
 			"displayName": "Input",
 			"custom": {},
@@ -869,7 +871,9 @@
 				"datasource": "user:connectedUser.lastname",
 				"moveable": false,
 				"placeholder": "Write your last name",
-				"readonly": false
+				"readonly": false,
+				"revealPassword": true,
+				"eyePosition": "right"
 			},
 			"displayName": "Input",
 			"custom": {},
@@ -1179,7 +1183,8 @@
 						"loader": "",
 						"parent": "webform-loader-self",
 						"isHardCoded": false,
-						"target": "UI:page"
+						"target": "UI:page",
+						"disabled": true
 					}
 				],
 				"iconPosition": "hidden",
@@ -1327,7 +1332,9 @@
 				"datasource": "user:connectedUser.email",
 				"moveable": false,
 				"placeholder": "Write your email",
-				"readonly": false
+				"readonly": false,
+				"revealPassword": true,
+				"eyePosition": "right"
 			},
 			"displayName": "Input",
 			"custom": {},
@@ -1835,7 +1842,9 @@
 				"moveable": false,
 				"placeholder": "Write your password",
 				"readonly": false,
-				"dataType": "string"
+				"dataType": "string",
+				"revealPassword": true,
+				"eyePosition": "right"
 			},
 			"displayName": "Input",
 			"custom": {},
@@ -1928,7 +1937,9 @@
 				"moveable": false,
 				"placeholder": "Confirm your password",
 				"readonly": false,
-				"dataType": "string"
+				"dataType": "string",
+				"revealPassword": true,
+				"eyePosition": "right"
 			},
 			"displayName": "Input",
 			"custom": {},

@@ -37,9 +37,10 @@
 		"styles": [
 			{
 				"name": "lineBreak",
-				"content": "self {\n\twhite-space: normal;\n}",
+				"content": "self {\n\twhite-space: normal;\n}\nself input{\n\twidth: 100% !important;\n}",
 				"parentId": null,
-				"id": "2pmSyewKnzj4lyHlme7Lt"
+				"id": "2pmSyewKnzj4lyHlme7Lt",
+				"scope": "local"
 			}
 		],
 		"states": [
@@ -442,7 +443,13 @@
 				"iterableChild": true
 			},
 			"displayName": "Text Input",
-			"custom": {},
+			"custom": {
+				"states:dZvj5q7ycVUrwQeqUgfwN1": {
+					"style": {
+						"maxWidth": "100%"
+					}
+				}
+			},
 			"parent": "UyDpA97uti",
 			"hidden": false,
 			"nodes": [],
@@ -475,25 +482,7 @@
 			},
 			"isCanvas": false,
 			"props": {
-				"events": [
-					{
-						"type": "method",
-						"dataclass": "ArticleEntity",
-						"events": [
-							"onchange"
-						],
-						"id": "gvaTd4Hai6zsyZiuAZbtzG",
-						"method": "article.checkTitle",
-						"params": [],
-						"namespace": "shared",
-						"datasource": "",
-						"returns": {
-							"name": "result",
-							"type": "boolean"
-						},
-						"feedback": true
-					}
-				],
+				"events": [],
 				"deletable": false,
 				"className": "fd-input w-full bg-transparent",
 				"type": "text",
@@ -509,7 +498,8 @@
 					"width": "100%",
 					"minWidth": "100%",
 					"overflow": "auto",
-					"textTransform": "capitalize"
+					"textTransform": "capitalize",
+					"maxWidth": "100%"
 				},
 				"datasource": "article.title",
 				"moveable": false,
@@ -518,7 +508,8 @@
 					"lineBreak"
 				],
 				"revealPassword": true,
-				"eyePosition": "right"
+				"eyePosition": "right",
+				"intervals": []
 			},
 			"displayName": "Input",
 			"custom": {},
@@ -1315,7 +1306,7 @@
 			},
 			"displayName": "Stylebox",
 			"custom": {
-				"contentHeight": 40
+				"contentHeight": 39
 			},
 			"parent": "X1nwkEtKlz",
 			"hidden": false,

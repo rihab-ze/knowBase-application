@@ -3,7 +3,7 @@ Class extends DataStoreImplementation
 exposed Function generateData()
 	dropDB()
 	initDB()
-	webform.setMessage("Data generated!")
+	Web Form:C1735.setMessage("Data generated!")
 	
 exposed Function getManifestObject() : Object
 	var $manifestFile : 4D:C1709.File

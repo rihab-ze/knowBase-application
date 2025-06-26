@@ -32,7 +32,7 @@ exposed Function add($article : cs:C1710.ArticleEntity)
 		If ($articleOwner.likeNotification)
 			ds:C1482.Notification.generateNotifs($articleOwner; $user; $article; "like"; ""; True:C214)
 		End if 
-		If (articleOwner.likeMail)
+		If ($articleOwner.likeMail)
 			$emailObj:={}
 			$emailObj.personalizations:=[{to: [{email: $articleOwner.email}]}]
 			$emailObj.subject:="New like on "+$article.title
