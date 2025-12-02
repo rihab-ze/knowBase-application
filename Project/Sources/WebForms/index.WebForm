@@ -81,6 +81,41 @@
 						"events": [
 							"oninit"
 						],
+						"id": "iWnP5X1US5xWJAvSzxoiKJ",
+						"method": "ds.authentify",
+						"params": [
+							{
+								"name": "email",
+								"type": "Text",
+								"datasource": "",
+								"id": "8Kckqt3Nc6w1qTqG4B6nXU",
+								"isHardCoded": true,
+								"hardCodedType": "string",
+								"hardCodedValue": ""
+							},
+							{
+								"name": "pwd",
+								"type": "Text",
+								"datasource": "",
+								"id": "p6MXzurjb15AmuVb9p6EUd",
+								"isHardCoded": true,
+								"hardCodedType": "string",
+								"hardCodedValue": ""
+							}
+						],
+						"datasource": "",
+						"allowedOnHTTPGET": false,
+						"returns": {
+							"name": "result",
+							"type": "cs.UserEntity"
+						}
+					},
+					{
+						"type": "method",
+						"dataclass": "DataStore",
+						"events": [
+							"oninit"
+						],
 						"id": "qnF4x7FersLtDDkuQRqJAB",
 						"method": "ds.getManifestObject",
 						"params": [],
@@ -640,7 +675,6 @@
 					"width": "50%",
 					"borderRadius": "10px",
 					"borderStyle": "none",
-					"height": "100%",
 					"paddingLeft": "0px",
 					"paddingRight": "0px"
 				},
@@ -669,10 +703,11 @@
 				"events": [],
 				"style": {
 					"height": "100%",
-					"backgroundColor": "transparent",
 					"borderWidth": "0px",
 					"borderStyle": "none",
-					"width": "100%"
+					"width": "100%",
+					"minHeight": "100%",
+					"backgroundColor": "transparent"
 				},
 				"currentElement": "selectedVisual",
 				"datasource": "visuals",

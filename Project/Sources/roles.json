@@ -1,11 +1,14 @@
 {
+	"forceLogin": true,
+	"restrictedByDefault": false,
 	"permissions": {
 		"allowed": [
 			{
-				"applyTo": "ds.authentify",
+				"applyTo": "ds.getManifestObject",
 				"type": "method",
 				"execute": [
-					"guest"
+					"guest",
+					"guestPromoted"
 				]
 			},
 			{
@@ -51,6 +54,13 @@
 				]
 			},
 			{
+				"applyTo": "ds.generateData",
+				"type": "method",
+				"execute": [
+					"guestPromoted"
+				]
+			},
+			{
 				"applyTo": "Setting",
 				"type": "dataclass",
 				"create": [
@@ -63,6 +73,11 @@
 		]
 	},
 	"privileges": [
+		{
+			"id": "quVEkJTGGBoWKABD9PwhRW",
+			"privilege": "guestPromoted",
+			"includes": []
+		},
 		{
 			"id": "mGccweCYUu24y7BctYQEc8",
 			"privilege": "learner",

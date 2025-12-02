@@ -29,10 +29,10 @@ exposed Function add($article : cs:C1710.ArticleEntity)
 		$like.article:=$article
 		$info:=$like.save()
 		Web Form:C1735.setMessage("You have liked this article!")
-		If ($articleOwner.likeNotification)
+		If ($articleOwner.likeNotification=True:C214)
 			ds:C1482.Notification.generateNotifs($articleOwner; $user; $article; "like"; ""; True:C214)
 		End if 
-		If ($articleOwner.likeMail)
+		If ($articleOwner.likeMail=True:C214)
 			$emailObj:={}
 			$emailObj.personalizations:=[{to: [{email: $articleOwner.email}]}]
 			$emailObj.subject:="New like on "+$article.title

@@ -229,7 +229,9 @@
 				"airyMode": false,
 				"className": "bg-white h-full w-full px-6",
 				"style": {
-					"paddingTop": "0px"
+					"paddingTop": "0px",
+					"overflow": "scroll",
+					"height": "100%"
 				}
 			},
 			"displayName": "Page",
@@ -464,9 +466,10 @@
 			},
 			"isCanvas": false,
 			"props": {
+				"text": "Title",
+				"classNames": [],
 				"events": [],
 				"moveable": false,
-				"text": "Title",
 				"deletable": true
 			},
 			"displayName": "Label",
@@ -509,7 +512,8 @@
 				],
 				"revealPassword": true,
 				"eyePosition": "right",
-				"intervals": []
+				"intervals": [],
+				"twentyFourHours": true
 			},
 			"displayName": "Input",
 			"custom": {},
@@ -1544,6 +1548,8 @@
 			},
 			"isCanvas": false,
 			"props": {
+				"text": "Public",
+				"classNames": [],
 				"events": [],
 				"moveable": false,
 				"htmlfor": "sNN4P_LTY2",
@@ -1553,7 +1559,6 @@
 					"fontWeight": "500",
 					"cursor": "auto"
 				},
-				"text": "Public",
 				"deletable": true
 			},
 			"displayName": "Label",

@@ -1684,12 +1684,14 @@
 				"name": "",
 				"classNames": [],
 				"events": [],
+				"componentName": "TextEditor",
 				"iterableChild": true,
 				"readOnly": true,
 				"style": {
 					"borderRadius": "6px"
 				},
-				"datasource": "shared:article.content"
+				"datasource": "shared:article.content",
+				"text": "Some Text"
 			},
 			"displayName": "TextEditor",
 			"custom": {},
@@ -2498,6 +2500,7 @@
 				"name": "",
 				"classNames": [],
 				"events": [],
+				"componentName": "Tags",
 				"iterableChild": true,
 				"attribut": "label",
 				"enableAction": false,
@@ -2519,7 +2522,8 @@
 					"borderRadius": "12px"
 				},
 				"datasource": "shared:article.articleTags",
-				"componentHeight": "auto"
+				"componentHeight": "auto",
+				"text": "Some Text"
 			},
 			"displayName": "Tags",
 			"custom": {},
@@ -2584,13 +2588,15 @@
 				"name": "",
 				"classNames": [],
 				"events": [],
+				"componentName": "Popover",
 				"position": "bottom-center",
 				"isShown": true,
 				"action": "click",
 				"style": {
 					"minWidth": "48px",
 					"width": "fit-content"
-				}
+				},
+				"text": "Some Text"
 			},
 			"displayName": "Popover",
 			"custom": {},
@@ -3240,11 +3246,13 @@
 					"virtualizer"
 				],
 				"events": [],
+				"componentName": "Virtualizer",
 				"style": {
 					"width": "100%",
 					"height": "500px"
 				},
-				"datasource": "shared:article.comments"
+				"datasource": "shared:article.comments",
+				"text": "Some Text"
 			},
 			"displayName": "Virtualizer",
 			"custom": {},
@@ -3586,6 +3594,7 @@
 				"name": "",
 				"classNames": [],
 				"events": [],
+				"componentName": "TextEditor",
 				"iterableChild": true,
 				"readOnly": true,
 				"style": {
@@ -3594,7 +3603,8 @@
 					"borderColor": "inherit",
 					"borderStyle": "none"
 				},
-				"datasource": "shared:$This.content"
+				"datasource": "shared:$This.content",
+				"text": "Some Text"
 			},
 			"displayName": "TextEditor",
 			"custom": {},
@@ -3612,6 +3622,7 @@
 				"name": "",
 				"classNames": [],
 				"events": [],
+				"componentName": "TextEditor",
 				"iterableChild": true,
 				"readOnly": false,
 				"style": {
@@ -3619,7 +3630,8 @@
 					"borderRadius": "6px",
 					"borderColor": "inherit"
 				},
-				"datasource": "comment.content"
+				"datasource": "comment.content",
+				"text": "Some Text"
 			},
 			"displayName": "TextEditor",
 			"custom": {},
