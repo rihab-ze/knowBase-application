@@ -19,6 +19,7 @@ exposed Function get commentAge()->$message : Text
 	End if 
 	
 exposed Function create()
+	TRACE:C157
 	var $user; $articleOwner : cs:C1710.UserEntity
 	var $info; $emailObj : Object
 	var $html; $url : Text
@@ -30,10 +31,10 @@ exposed Function create()
 		This:C1470.user:=$user
 		$info:=This:C1470.save()
 		Web Form:C1735.setMessage("Comment added successfully")
-		If ($articleOwner.commentNotification)
+		If ($articleOwner.commentNotification=True:C214)
 			ds:C1482.Notification.generateNotifs($articleOwner; $user; This:C1470.article; "comment"; This:C1470.content; True:C214)  // to modify
 		End if 
-		If ($articleOwner.commentMail)
+		If ($articleOwner.commentMail=True:C214)
 			$emailObj:={personalizations: []}
 			$emailObj.personalizations:=[{to: [{email: $articleOwner.email}]}]
 			$emailObj.subject:="New Comment on "+This:C1470.article.title

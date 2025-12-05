@@ -215,11 +215,21 @@
 					"paddingLeft": "8px",
 					"paddingRight": "8px",
 					"paddingBottom": "8px",
-					"paddingTop": "8px"
+					"paddingTop": "8px",
+					"height": "100%",
+					"minHeight": "100%",
+					"backgroundColor": "transparent",
+					"maxHeight": "100%"
 				}
 			},
 			"displayName": "Page",
-			"custom": {},
+			"custom": {
+				"states:hYkEtZX1g55EyXrN2Jhxuu": {
+					"style": {
+						"overflow": "visible"
+					}
+				}
+			},
 			"parent": "",
 			"hidden": false,
 			"nodes": [
@@ -1043,9 +1053,10 @@
 			},
 			"isCanvas": false,
 			"props": {
+				"text": "Search",
+				"classNames": [],
 				"events": [],
 				"moveable": false,
-				"text": "Search",
 				"deletable": true
 			},
 			"displayName": "Label",
@@ -1078,7 +1089,8 @@
 				"readonly": false,
 				"dataType": "string",
 				"revealPassword": true,
-				"eyePosition": "right"
+				"eyePosition": "right",
+				"twentyFourHours": true
 			},
 			"displayName": "Input",
 			"custom": {},

@@ -13,6 +13,11 @@ exposed Function getManifestObject() : Object
 	return $manifestObject
 	
 exposed Function authentify($email : Text; $pwd : Text) : cs:C1710.UserEntity
+	var $guestPriv : Collection:=["guest"; "guestPromoted"]
+	If (($email="") && ($pwd=""))
+		Session:C1714.setPrivileges($guestPriv)
+		return Null:C1517
+	End if 
 	var $user : cs:C1710.UserEntity
 	If (($email#"") && ($pwd#""))
 		$user:=ds:C1482.User.query("email = :1"; $email).first()

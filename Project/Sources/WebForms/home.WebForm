@@ -168,7 +168,8 @@
 					"paddingBottom": "0px",
 					"paddingTop": "0px",
 					"display": "flex",
-					"flexDirection": "column"
+					"flexDirection": "column",
+					"height": "100%"
 				}
 			},
 			"displayName": "Page",
@@ -2841,7 +2842,8 @@
 					"paddingLeft": "0px",
 					"paddingRight": "0px",
 					"paddingBottom": "0px",
-					"paddingTop": "0px"
+					"paddingTop": "0px",
+					"overflow": "auto"
 				},
 				"datasource": "UI:page",
 				"classNames": [
@@ -2853,6 +2855,11 @@
 			"custom": {
 				"states:4e6HFFM45pZnA8hvDqFJGy": {
 					"webform": "articleList"
+				},
+				"states:vRtTEJi8ddyYPtzUjJJ7Ak": {
+					"style": {
+						"backgroundColor": "transparent"
+					}
 				}
 			},
 			"parent": "ROOT",
