@@ -4,6 +4,9 @@
 
 This application serves as a complete blogging platform allowing users to create, read, interact with, and manage blog posts. It includes role-based access, user interaction features (likes and comments), and automated notifications to authors.
 
+![Article list screenshot](Project/Sources/Shared/visuals/articleList.png)
+
+
 
 ---
 
@@ -16,11 +19,18 @@ This application serves as a complete blogging platform allowing users to create
 
 - CRUD workflows for writing, editing, and publishing posts
 
+![Article list screenshot](Project/Sources/Shared/visuals/newArticle.png)
+
 - Ability to read, write, like, and comment on blog posts
+
+![Article list screenshot](Project/Sources/Shared/visuals/articleDetail.png)
 
 - Automatic email notifications sent to the blog owner when their post receives a like or comment
 
 - Built-in notification settings allowing each user to enable/disable alerts
+
+![Article list screenshot](Project/Sources/Shared/visuals/settingPage.png)
+
 - Public users can read blogs
 
 - Secure role-based access management
