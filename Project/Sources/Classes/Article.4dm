@@ -1,99 +1,103 @@
 Class extends DataClass
 
-function event restrict() : cs.ArticleSelection
-	if (session # null)
-		case of 
-			: (session.hasPrivilege("WebAdmin"))
-				return null
-			: (session.hasPrivilege("admin"))
-				return null
-			: (session.hasPrivilege("tutor"))
+Function event restrict() : cs:C1710.ArticleSelection
+	If (Session:C1714#Null:C1517)
+		Case of 
+			: (Session:C1714.hasPrivilege("WebAdmin"))
+				return Null:C1517
+			: (Session:C1714.hasPrivilege("admin"))
+				return Null:C1517
+			: (Session:C1714.hasPrivilege("tutor"))
 				// TODO:
-				return null
-			: (session.hasPrivilege("learner"))
-				return this.query("public = :1 "; true)
+				return Null:C1517
+			: (Session:C1714.hasPrivilege("learner"))
+				return This:C1470.query("public = :1 "; True:C214)
 				//: (session.hasPrivilege("guest"))
-			: (session.getPrivileges().length = 0)
-				return this.query("public = :1 "; true)
-		end case 
-	else 
-		return this.newSelection()
-	end if 
+			: (Session:C1714.getPrivileges().length=0)
+				return This:C1470.query("public = :1 "; True:C214)
+		End case 
+	Else 
+		return This:C1470.newSelection()
+	End if 
 	
-exposed function getByFilter($filter : text) : cs.ArticleSelection
-	var $articles: cs.ArticleSelection
-	var $user: cs.UserEntity
-	case of 
-		: ($filter = "draft")
-			$articles := this.query("published = null").orderBy("creationDate desc, creationTime desc")
-		: ($filter = "published")
-			$articles := this.query("published = :1"; true).orderBy("creationDate desc, creationTime desc")
-		: ($filter = "archived")
-			$articles := this.query("published = :1"; false).orderBy("creationDate desc, creationTime desc")
-		else 
-			$articles := this.newSelection()
-	end case 
-	if ((session.storage.playload # null) && (session.storage.playload.ID # null) && session.hasPrivilege("tutor"))
-		$user := ds.User.get(session.storage.playload.ID)
-		$articles := $articles.query("user.ID = :1"; $user.ID)
-	end if 
+exposed Function getByFilter($filter : Text) : cs:C1710.ArticleSelection
+	var $articles : cs:C1710.ArticleSelection
+	var $user : cs:C1710.UserEntity
+	Case of 
+		: ($filter="draft")
+			$articles:=This:C1470.query("published = null").orderBy("creationDate desc, creationTime desc")
+		: ($filter="published")
+			$articles:=This:C1470.query("published = :1"; True:C214).orderBy("creationDate desc, creationTime desc")
+		: ($filter="archived")
+			$articles:=This:C1470.query("published = :1"; False:C215).orderBy("creationDate desc, creationTime desc")
+		Else 
+			$articles:=This:C1470.newSelection()
+	End case 
+	If ((Session:C1714.storage.playload#Null:C1517) && (Session:C1714.storage.playload.ID#Null:C1517) && Session:C1714.hasPrivilege("tutor"))
+		$user:=ds:C1482.User.get(Session:C1714.storage.playload.ID)
+		$articles:=$articles.query("user.ID = :1"; $user.ID)
+	End if 
 	return $articles
 	
-exposed function search($filter : text; $search : text; $category : cs.CategoryEntity; $tag : cs.TagEntity) : cs.ArticleSelection
-	var $articles: cs.ArticleSelection
-	var $user: cs.UserEntity
-	case of 
-		: ($filter = "draft")
-			$articles := this.query("published = null and title = :1"; "@"+$search+"@").orderBy("creationDate desc, creationTime desc")
-		: ($filter = "published")
-			$articles := this.query("published = :1 and title = :2"; true; "@"+$search+"@").orderBy("creationDate desc, creationTime desc")
-		: ($filter = "archived")
-			$articles := this.query("published = :1 and title = :2"; false; "@"+$search+"@").orderBy("creationDate desc, creationTime desc")
-		: ($filter = "liked")
-			if ((session.storage.playload # null) && (session.storage.playload.ID # null))
-				$user := ds.User.get(session.storage.playload.ID)
-				$articles := $user.likedArticles.query("title = :1"; "@"+$search+"@").orderBy("creationDate desc, creationTime desc")
-			end if 
-		else 
-			$articles := this.query("title = :1"; "@"+$search+"@").orderBy("creationDate desc, creationTime desc")
-	end case 
-	if ($category # null)
-		$articles := $articles.query("category.ID = :1"; $category.ID)
-	end if 
-	if ($tag # null)
-		$articles := $articles.query("articleTags.ID = :1"; $tag.ID)
-	end if 
-	if (($filter # "ALL") && (session.storage.playload # null) && (session.storage.playload.ID # null) && session.hasPrivilege("tutor"))
-		$user := ds.User.get(session.storage.playload.ID)
-		$articles := $articles.query("user.ID = :1"; $user.ID)
-	end if 
+exposed Function search($filter : Text; $search : Text; $category : cs:C1710.CategoryEntity; $tag : cs:C1710.TagEntity) : cs:C1710.ArticleSelection
+	var $articles : cs:C1710.ArticleSelection
+	var $user : cs:C1710.UserEntity
+	Case of 
+		: ($filter="draft")
+			$articles:=This:C1470.query("published = null and title = :1"; "@"+$search+"@").orderBy("creationDate desc, creationTime desc")
+		: ($filter="published")
+			$articles:=This:C1470.query("published = :1 and title = :2"; True:C214; "@"+$search+"@").orderBy("creationDate desc, creationTime desc")
+		: ($filter="archived")
+			$articles:=This:C1470.query("published = :1 and title = :2"; False:C215; "@"+$search+"@").orderBy("creationDate desc, creationTime desc")
+		: ($filter="liked")
+			If ((Session:C1714.storage.playload#Null:C1517) && (Session:C1714.storage.playload.ID#Null:C1517))
+				$user:=ds:C1482.User.get(Session:C1714.storage.playload.ID)
+				$articles:=$user.likedArticles.query("title = :1"; "@"+$search+"@").orderBy("creationDate desc, creationTime desc")
+			End if 
+		Else 
+			$articles:=This:C1470.query("title = :1"; "@"+$search+"@").orderBy("creationDate desc, creationTime desc")
+	End case 
+	If ($category#Null:C1517)
+		$articles:=$articles.query("category.ID = :1"; $category.ID)
+	End if 
+	If ($tag#Null:C1517)
+		$articles:=$articles.query("articleTags.ID = :1"; $tag.ID)
+	End if 
+	If (($filter#"ALL") && (Session:C1714.storage.playload#Null:C1517) && (Session:C1714.storage.playload.ID#Null:C1517) && Session:C1714.hasPrivilege("tutor"))
+		$user:=ds:C1482.User.get(Session:C1714.storage.playload.ID)
+		$articles:=$articles.query("user.ID = :1"; $user.ID)
+	End if 
 	return $articles
 	
-exposed function getAvailableCategories() : cs.CategorySelection
+exposed Function getAvailableCategories() : cs:C1710.CategorySelection
 	// because i used restrict, the result differs from a $user to another
-	return this.all().category
+	return This:C1470.all().category
 	
-exposed function getAvailableTags() : cs.TagSelection
-	return this.all().articleTags
+exposed Function getAvailableTags() : cs:C1710.TagSelection
+	return This:C1470.all().articleTags
 	
-exposed function getStats() : object
-	var $stats: object := {}
-	var $articles: cs.ArticleSelection := this.all()
-	$stats.total := $articles.length
-	$stats.draft := $articles.query("published = null").length
-	$stats.published := $articles.query("published = :1"; true).length
-	$stats.archived := $articles.query("published = :1"; false).length
-	$stats.public := $articles.query("public = :1"; true).length
+exposed Function getStats() : Object
+	var $stats : Object:={}
+	var $articles : cs:C1710.ArticleSelection:=This:C1470.all()
+	$stats.total:=$articles.length
+	$stats.draft:=$articles.query("published = null").length
+	$stats.published:=$articles.query("published = :1"; True:C214).length
+	$stats.archived:=$articles.query("published = :1"; False:C215).length
+	$stats.public:=$articles.query("public = :1"; True:C214).length
 	return $stats
-
-exposed function articlePieChart(): collection
-	var $stats: collection := []
-	var $articles: cs.ArticleSelection := this.all()
-	$stats.push({ label: "Published"; value: $articles.query("published = :1"; true).length})
-	$stats.push({ label: "Draft"; value: $articles.query("published = null").length})
+	
+	//Distribution of published vs draft articles for dashboard pie chart.
+exposed Function articlePieChart() : Collection
+	var $stats : Collection:=[]
+	var $articles : cs:C1710.ArticleSelection:=This:C1470.all()
+	$stats.push({label: "Published"; value: $articles.query("published = :1"; True:C214).length})
+	$stats.push({label: "Draft"; value: $articles.query("published = null").length})
 	return $stats
-exposed function articleMostLikes(): collection
-	var $stats: collection := []
-	var $articles: cs.ArticleSelection := this.all().orderByFormula("this.likes.length"; ck descending).slice(0; 10)
-	$stats := $articles.extract("title"; "x"; "likes.length"; "value")
+	
+	//Top 10 articles ranked by number of likes.
+exposed Function articleMostLikes() : Collection
+	var $stats : Collection:=[]
+	var $articles : cs:C1710.ArticleSelection:=This:C1470.all().orderByFormula("this.likes.length"; ck descending:K85:8).slice(0; 10)
+	$stats:=$articles.extract("title"; "x"; "likes.length"; "value")
 	return $stats
+	

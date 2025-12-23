@@ -29,6 +29,12 @@
 			"content": "self {\n\tdisplay: none !important;\n}",
 			"parentId": null,
 			"id": "KYWJrJIrqyP1eTJVFHxf1"
+		},
+		{
+			"name": "flex-grow",
+			"content": "self {\n\tflex-grow: 1;\n}",
+			"parentId": null,
+			"id": "gSt2sszf6p37m-qmBs-p2"
 		}
 	]
 }

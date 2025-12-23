@@ -232,10 +232,11 @@
 			},
 			"isCanvas": false,
 			"props": {
+				"text": "Email",
+				"classNames": [],
 				"events": [],
 				"moveable": false,
-				"deletable": true,
-				"text": "Email"
+				"deletable": true
 			},
 			"displayName": "Label",
 			"custom": {},
@@ -270,7 +271,10 @@
 				"dataType": "string",
 				"classNames": [
 					"responsiveInput"
-				]
+				],
+				"revealPassword": true,
+				"twentyFourHours": true,
+				"eyePosition": "right"
 			},
 			"displayName": "Input",
 			"custom": {},
@@ -349,10 +353,11 @@
 			},
 			"isCanvas": false,
 			"props": {
+				"text": "Password",
+				"classNames": [],
 				"events": [],
 				"moveable": false,
-				"deletable": true,
-				"text": "Password"
+				"deletable": true
 			},
 			"displayName": "Label",
 			"custom": {},
@@ -387,7 +392,10 @@
 				"dataType": "string",
 				"classNames": [
 					"responsiveInput"
-				]
+				],
+				"revealPassword": true,
+				"twentyFourHours": true,
+				"eyePosition": "right"
 			},
 			"displayName": "Input",
 			"custom": {},

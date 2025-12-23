@@ -1,5 +1,7 @@
 # KnowBase Application
 
+This demo app is built with 4D Qodly Pro and is meant to inspire you or help you kickstart your own project.
+
 ## 🎯 Purpose of the Application
 
 This application serves as a complete blogging platform allowing users to create, read, interact with, and manage blog posts. It includes role-based access, user interaction features (likes and comments), and automated notifications to authors.
@@ -8,11 +10,7 @@ This application serves as a complete blogging platform allowing users to create
 
 
 
----
-
-## 🧩 What the Application Covers
-
-### 🏠 Main Features
+## 🏠 Main Features
 
 - Interactive Datatable to browse blog posts
 - Dedicated blog post pages (full content view)
@@ -35,59 +33,55 @@ This application serves as a complete blogging platform allowing users to create
 
 - Secure role-based access management
 
----
+## 🚀 How to run
 
-### 👥 User Roles
+###  Pre-requisites (4D Software):
+- Download the latest Release version of 4D: [Product Download](https://us.4d.com/product-download/Feature-Release)
+- Or the latest Beta version: [Beta Program](https://discuss.4d.com/)
+- Follow activation steps: [Installation Guide](https://developer.4d.com/docs/GettingStarted/installation)
 
+### Steps to Run the Project
+- Clone or download this repository to your local machine. Need help? See Using GitHub with 4D.
+- Open the project in 4D: Go to File > Open Project (More details here: Open a Project)
+- Open Qodly Studio: Go to Design > Qodly Studio menu
+- Run the application: Click Run to start the server and preview the app in your browser
 
-- **Admin**  
-Full access to all blog posts and user content. Can write, edit, delete any post, manage comments, manage users, and configure notification settings globally.
-
-- **Tutor**  
-  Can create and manage their own blog posts, edit or delete their content, and respond to comments. Can enable/disable notifications for interactions on their posts.
-
-- **Learner**  
-  Can read blog posts, like them, and add comments. 
-
----
-
-
-## 🚀 How to Integrate and Use the Application
-
-### 1. Clone or Import the Template
-
-Download or clone the project from the Github project link : ###.
-
-### 2. Configure Credentials
-To enable the mailing feature, add your credentials in the secret settings page located in the Settings section.
-
-
-### 3. Launch the Application
-To access and start using the application, open the project in Qodly Studio and run the application.
-
-You can choose your preferred starting page depending on your workflow:
-- Set the starting page to Index if you want an overview of the entire application and its features.
-- Set the starting page to home if you want to land directly on the login process.
+## Configuration & Credentials
  
-Open the project in **Qodly Studio** and run the application.  
-Explore the different pages to see all available features.
+This section explains exactly how to wire credentials and test the app (what to create, where to place files, and what the app already provides).
 
-### 4. Test With Different Roles
-Log in using predefined test accounts or create new ones to test role behavior:
+### Do I need to create external accounts?
+  - Mailing: Yes — if you want emails to be sent (approvals, notifications) you should create an SMTP-capable account (or SMTP-compatible API service such as SendGrid SMTP).
+    - Example (SendGrid SMTP):
+      - Host: `smtp.sendgrid.net`
+      - Port: `587` (or 465 for SSL)
+      - User: `apikey` (SendGrid uses `apikey` as username)
+      - Password: `<your SendGrid API key>`
 
-- **Admin**
-- **Tutor**
-- **Learner**
+### Where does the app read credentials?
+- Credentials are configured via the **Settings** page inside the application.
+- External service keys and secrets are stored and accessed through the database.
 
-Each role will present different permissions and interface options.
+### How to test email sending locally
+Provide SendGrid/SMTP credentials as above, then trigger an action that sends mail (e.g., blog like that calls `Mailer.4dm:send`).
+ 
+## Test accounts and sample data
 
-### 5. Customize as Needed
+  - The app includes a data generator `Project/Sources/Merhods/initDB.4dm` which creates sample users with known emails and passwords. You can call it from the UI (index.WebForm) or run `ds.generateData()` in the server console.
 
-Feel free to extend the application according to your needs:
+## Where to find the code for each feature
 
-- Modify or expand the **data model**
-- Add or redesign **UI elements**
-- Implement new **custom components**
-- Enhance or change the **business logic** (e.g., approval flow, notifications)
+If you want to change the behavior or appearance of a specific feature, edit the files listed below.
+ 
+- Authentication / Login
+  - UI: `Project/Sources/WebForms/login.WebForm`.
+  - Server: `Project/Sources/Classes/DataStore.4dm` (method: `authentify`) — handles login, session privileges and landing page routing.
+
+- Dashboard (balances)
+  - UI: `Project/Sources/WebForms/userEngagment.WebForm`.
+  - Server: `Project/Sources/Classes/User.4dm` (`userPieChart` : Active vs inactive users distribution for dashboard pie chart. `topUsers` : Top 20 users ranked by engagement (articles or comments, depending on role)).
+
+   - UI: `Project/Sources/WebForms/ArticlePerformance.WebForm`.
+  - Server: `Project/Sources/Classes/Article.4dm` (`articlePieChart()`: Distribution of published vs draft articles for dashboard pie chart. `articleMostLikes()`: Top 10 articles ranked by number of likes.)
 
 

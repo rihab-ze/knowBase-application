@@ -95,6 +95,7 @@ exposed Function create($email : Text; $firstname : Text; $lastname : Text; $rol
 		End if 
 	End if 
 	
+	//Active vs inactive users distribution for dashboard pie chart
 exposed Function userPieChart() : Collection
 	var $stats : Collection:=[]
 	var $users : cs:C1710.UserSelection:=This:C1470.all()
@@ -102,6 +103,7 @@ exposed Function userPieChart() : Collection
 	$stats.push({label: "inactive"; value: $users.query("active = :1"; False:C215).length})
 	return $stats
 	
+	//Top 20 users ranked by engagement (articles or comments, depending on role)
 exposed Function topUsers($role : Text) : Collection
 	var $stats : Collection:=[]
 	var $values : Collection

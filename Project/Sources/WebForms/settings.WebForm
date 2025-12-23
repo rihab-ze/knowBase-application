@@ -10,26 +10,7 @@
 				"initialValue": ""
 			}
 		],
-		"styles": [
-			{
-				"name": "dropdownParent",
-				"content": "self{\n\tposition: relative;\n\tdisplay: inline-block;\n}\n\nself:hover .dropdownChild{\n\tdisplay: block !important;\n}",
-				"parentId": null,
-				"id": "4wn0FTHz9XLwHMLkmbKPt"
-			},
-			{
-				"name": "dropdownChild",
-				"content": "self{\n\tdisplay: none !important;\n\toverflow: visible;\n}",
-				"parentId": null,
-				"id": "gBDih43vj4NJ-xl8ZZVj0"
-			},
-			{
-				"name": "respnsiveButton",
-				"content": "@media screen and (max-width : 500px) {\n\tself {\n\t\tfont-size: 10px !important;\n\t\twidth: auto;\n\t}\n}",
-				"parentId": null,
-				"id": "SpiDoWnhnC-YlMKqVR2z6"
-			}
-		],
+		"styles": [],
 		"states": [
 			{
 				"label": "Base",

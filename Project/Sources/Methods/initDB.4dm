@@ -1,5 +1,4 @@
 //%attributes = {}
-// general var
 var $item : Object
 var $users : cs:C1710.UserSelection
 var $tags : cs:C1710.TagSelection
@@ -71,30 +70,6 @@ New object:C1471("lastname"; "Cook"; "firstname"; "Logan"; "email"; "logan.cook@
 New object:C1471("lastname"; "Bell"; "firstname"; "Harper"; "email"; "harper.bell@4d.com"; "creationDate"; Current date:C33; "role"; "Admin"); \
 New object:C1471("lastname"; "Diaz"; "firstname"; "Elijah"; "email"; "elijah.diaz@4d.com"; "creationDate"; Current date:C33; "role"; "Tutor"); \
 New object:C1471("lastname"; "Stewart"; "firstname"; "Scarlett"; "email"; "scarlett.stewart@4d.com"; "creationDate"; Current date:C33; "role"; "Tutor"))
-//$fakeUsers.push(\
-New object("lastname"; "Rivera"0"firstname"0"Aiden"0"email"0"aiden.rivera@4d.com"0"creationDate".currentDate0"role"; "Tutor"); \
-New object("lastname"; "Price"0"firstname"0"Hannah"0"email"0"hannah.price@4d.com"0"creationDate".currentDate0"role"; "Admin"); \
-New object("lastname"; "Bailey"0"firstname"0"Nathan"0"email"0"nathan.bailey@4d.com"0"creationDate".currentDate0"role"; "Admin"); \
-New object("lastname"; "Cooper"0"firstname"0"Lily"0"email"0"lily.cooper@4d.com"0"creationDate".currentDate0"role"; "Admin"); \
-New object("lastname"; "Flores"0"firstname"0"Evelyn"0"email"0"evelyn.flores@4d.com"0"creationDate".currentDate0"role"; "Admin")\)
-//$fakeUsers.push(\
-New object("lastname"; "Chen"0"firstname"0"Liam"0"email"0"liam.chen@4d.com"0"creationDate".currentDate0"role"; "Learner"); \
-New object("lastname"; "Graham"0"firstname"0"Zoe"0"email"0"zoe.graham@4d.com"0"creationDate".currentDate0"role"; "Learner"); \
-New object("lastname"; "Perry"0"firstname"0"William"0"email"0"william.perry@4d.com"0"creationDate".currentDate0"role"; "Tutor"); \
-New object("lastname"; "Nguyen"0"firstname"0"Aria"0"email"0"aria.nguyen@4d.com"0"creationDate".currentDate0"role"; "Learner"); \
-New object("lastname"; "Reed"0"firstname"0"Gabriel"0"email"0"gabriel.reed@4d.com"0"creationDate".currentDate0"role"; "Tutor")\)
-//$fakeUsers.push(\
-New object("lastname"; "Carter"0"firstname"0"Ella"0"email"0"ella.carter@4d.com"0"creationDate".currentDate0"role"; "Admin"); \
-New object("lastname"; "Murphy"0"firstname"0"Jack"0"email"0"jack.murphy@4d.com"0"creationDate".currentDate0"role"; "Tutor"); \
-New object("lastname"; "Morris"0"firstname"0"Layla"0"email"0"layla.morris@4d.com"0"creationDate".currentDate0"role"; "Admin"); \
-New object("lastname"; "Brooks"0"firstname"0"Henry"0"email"0"henry.brooks@4d.com"0"creationDate".currentDate0"role"; "Admin"); \
-New object("lastname"; "Barnes"0"firstname"0"Grace"0"email"0"grace.barnes@4d.com"0"creationDate".currentDate0"role"; "Admin")\)
-//$fakeUsers.push(\
-New object("lastname"; "Powell"0"firstname"0"Lucas"0"email"0"lucas.powell@4d.com"0"creationDate".currentDate0"role"; "Admin"); \
-New object("lastname"; "Russell"0"firstname"0"Samantha"0"email"0"samantha.russell@4d.com"0"creationDate".currentDate0"role"; "Tutor"); \
-New object("lastname"; "Bryant"0"firstname"0"Mason"0"email"0"mason.bryant@4d.com"0"creationDate".currentDate0"role"; "Admin"); \
-New object("lastname"; "Foster"0"firstname"0"Madison"0"email"0"madison.foster@4d.com"0"creationDate".currentDate0"role"; "Admin"); \
-New object("lastname"; "Jenkins"0"firstname"0"Benjamin"0"email"0"benjamin.jenkins@4d.com"0"creationDate".currentDate0"role"; "Tutor")\)
 
 For each ($item; $fakeUsers)
 	$user:=ds:C1482.User.new()

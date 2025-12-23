@@ -29,27 +29,6 @@
 		],
 		"styles": [
 			{
-				"name": "dropdownParent",
-				"content": "self{\n\tposition: relative;\n\tdisplay: inline-block;\n}\n\nself:hover .dropdownChild{\n\tdisplay: block !important;\n}",
-				"parentId": null,
-				"id": "4wn0FTHz9XLwHMLkmbKPt",
-				"scope": "local"
-			},
-			{
-				"name": "dropdownChild",
-				"content": "self{\n\tdisplay: none !important;\n\toverflow: visible;\n}",
-				"parentId": null,
-				"id": "gBDih43vj4NJ-xl8ZZVj0",
-				"scope": "local"
-			},
-			{
-				"name": "respnsiveButton",
-				"content": "@media screen and (max-width : 500px) {\n\tself {\n\t\tfont-size: 10px !important;\n\t\twidth: auto;\n\t}\n}",
-				"parentId": null,
-				"id": "SpiDoWnhnC-YlMKqVR2z6",
-				"scope": "local"
-			},
-			{
 				"name": "lineBreak",
 				"content": "self {\n\twhite-space: normal;\n}\nself input{\n\twidth: 100% !important;\n}",
 				"parentId": null,
@@ -441,9 +420,10 @@
 			},
 			"isCanvas": false,
 			"props": {
+				"text": "Title",
+				"classNames": [],
 				"events": [],
 				"moveable": false,
-				"text": "Title",
 				"deletable": true
 			},
 			"displayName": "Label",
@@ -459,25 +439,7 @@
 			},
 			"isCanvas": false,
 			"props": {
-				"events": [
-					{
-						"type": "method",
-						"dataclass": "ArticleEntity",
-						"events": [
-							"onchange"
-						],
-						"id": "gvaTd4Hai6zsyZiuAZbtzG",
-						"method": "article.checkTitle",
-						"params": [],
-						"namespace": "shared",
-						"datasource": "",
-						"returns": {
-							"name": "result",
-							"type": "boolean"
-						},
-						"feedback": true
-					}
-				],
+				"events": [],
 				"deletable": false,
 				"className": "fd-input w-full bg-transparent",
 				"type": "text",
@@ -503,7 +465,8 @@
 				],
 				"revealPassword": true,
 				"eyePosition": "right",
-				"intervals": []
+				"intervals": [],
+				"twentyFourHours": true
 			},
 			"displayName": "Input",
 			"custom": {},
@@ -1071,7 +1034,7 @@
 			},
 			"displayName": "Stylebox",
 			"custom": {
-				"contentHeight": 39
+				"contentHeight": 40
 			},
 			"parent": "_q62dwmpzt",
 			"hidden": false,
@@ -1189,7 +1152,7 @@
 			},
 			"displayName": "Stylebox",
 			"custom": {
-				"contentHeight": 39
+				"contentHeight": 40
 			},
 			"parent": "5VU4S4ETJj",
 			"hidden": false,
@@ -1533,6 +1496,8 @@
 			},
 			"isCanvas": false,
 			"props": {
+				"text": "Public",
+				"classNames": [],
 				"events": [],
 				"moveable": false,
 				"htmlfor": "sNN4P_LTY2",
@@ -1542,7 +1507,6 @@
 					"fontWeight": "500",
 					"cursor": "auto"
 				},
-				"text": "Public",
 				"deletable": true
 			},
 			"displayName": "Label",
