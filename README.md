@@ -68,7 +68,10 @@ Provide SendGrid/SMTP credentials as above, then trigger an action that sends ma
 ## Test accounts and sample data
 
   - The app includes a data generator `Project/Sources/Merhods/initDB.4dm` which creates sample users with known emails and passwords. You can call it from the UI (index.WebForm) or run `ds.generateData()` in the server console.
-
+  - To test the login, you can use the following credentials:
+      - Email: admin@4d.com
+      - Password: 123456
+      
 ## Where to find the code for each feature
 
 If you want to change the behavior or appearance of a specific feature, edit the files listed below.
